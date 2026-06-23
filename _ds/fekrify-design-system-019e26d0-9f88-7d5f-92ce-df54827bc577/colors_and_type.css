@@ -1,0 +1,501 @@
+/* ============================================================
+   Fekrify Design System — Colors & Type
+   IBM Plex Sans 400. Five color schemes. Bubble buttons.
+   ============================================================ */
+
+/* ---------- Fonts ---------- */
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url("fonts/ibm-plex-sans-100.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url("fonts/ibm-plex-sans-200.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/ibm-plex-sans-300.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/ibm-plex-sans-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/ibm-plex-sans-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/ibm-plex-sans-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/ibm-plex-sans-700.woff2") format("woff2");
+}
+
+:root {
+  /* ---------- Neutrals ---------- */
+  --color-white: #ffffff;
+  --color-neutral-0: #ffffff;      /* lightest */
+  --color-neutral-1: #f2f2f2;
+  --color-neutral-2: #d8d8d9;
+  --color-neutral-3: #b2b2b3;
+  --color-neutral-4: #808081;
+  --color-neutral-5: #4d4d4e;
+  --color-neutral-6: #1a1a1c;
+  --color-neutral-7: #010103;      /* darkest (near-black, used for body text) */
+
+  /* ---------- Brand chromatics ---------- */
+  /* Violet — primary brand accent. Deep, near-navy. */
+  --color-violet-1: #e6e7eb;
+  --color-violet-2: #cecfd8;
+  --color-violet-3: #535777;
+  --color-violet:   #0a103d;       /* primary — buttons, dark scheme bg */
+  --color-violet-5: #080c30;
+  --color-violet-6: #040618;
+  --color-violet-7: #030412;
+
+  /* Blue Ribbon — accent blue */
+  --color-blue-1: #e6effe;
+  --color-blue-2: #cde0fe;
+  --color-blue-3: #5294fe;
+  --color-blue:   #0967fe;
+  --color-blue-5: #0752cb;
+  --color-blue-6: #032965;
+  --color-blue-7: #021e4c;
+
+  /* Aquamarine — electric accent. Used for CTA blocks. */
+  --color-aqua-1: #edfdff;
+  --color-aqua-2: #dbfcff;
+  --color-aqua-3: #83f5ff;
+  --color-aqua:   #4ef1ff;         /* CTA scheme background */
+  --color-aqua-5: #3ec0cc;
+  --color-aqua-6: #1f6066;
+  --color-aqua-7: #17484c;
+
+  /* Razzle Dazzle Rose — high-energy magenta */
+  --color-rose-1: #fceafb;
+  --color-rose-2: #fad6f7;
+  --color-rose-3: #ee70e5;
+  --color-rose:   #e734da;
+  --color-rose-5: #b829ae;
+  --color-rose-6: #5c1457;
+  --color-rose-7: #450f41;
+
+  /* Wild Sand — off-white surface */
+  --color-sand-1: #fefefe;
+  --color-sand-2: #fdfdfd;
+  --color-sand-3: #f8f8f8;
+  --color-sand:   #f5f5f5;
+  --color-sand-5: #c4c4c4;
+  --color-sand-6: #626262;
+  --color-sand-7: #494949;
+
+  /* ---------- Alpha ramps (for backdrops, hover fills, borders) ---------- */
+  --alpha-fg-5:  rgb(1 1 3 / 0.05);
+  --alpha-fg-10: rgb(1 1 3 / 0.10);
+  --alpha-fg-15: rgb(1 1 3 / 0.15);
+  --alpha-fg-20: rgb(1 1 3 / 0.20);
+  --alpha-fg-60: rgb(1 1 3 / 0.60);
+  --alpha-on-dark-10: rgb(255 255 255 / 0.10);
+  --alpha-on-dark-20: rgb(255 255 255 / 0.20);
+  --alpha-on-dark-60: rgb(255 255 255 / 0.60);
+
+  /* ---------- Semantic (scheme-1 / default, light) ---------- */
+  --bg:       var(--color-white);
+  --bg-alt:   var(--color-neutral-1);
+  --fg:       var(--color-neutral-7);     /* body text */
+  --fg-muted: var(--color-neutral-5);
+  --accent:   var(--color-violet);        /* primary action */
+  --border:   var(--alpha-fg-15);
+  --btn-text: var(--color-white);
+
+  /* ---------- Type ---------- */
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-sans);
+
+  /* Mobile-first scale */
+  --text-h1: 2.5rem;     /* 40px */
+  --text-h2: 2.25rem;    /* 36px */
+  --text-h3: 2rem;       /* 32px */
+  --text-h4: 1.5rem;     /* 24px */
+  --text-h5: 1.25rem;    /* 20px */
+  --text-h6: 1.125rem;   /* 18px */
+  --text-large:   1.125rem;
+  --text-medium:  1rem;
+  --text-regular: 0.875rem;
+  --text-small:   0.75rem;
+  --text-tiny:    0.625rem;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;   /* Plex Sans Bold — used for h1-h6 in marketing */
+
+  --tracking-tight: -0.01em;
+  --leading-tight: 1.2;
+  --leading-snug: 1.3;
+  --leading-normal: 1.5;
+
+  /* ---------- Radii ---------- */
+  --radius-button:   0.75rem;    /* 12px */
+  --radius-badge:    0.75rem;
+  --radius-form:     0.75rem;
+  --radius-card:     1rem;       /* 16px */
+  --radius-image:    1rem;
+  --radius-carousel: 0.5rem;
+  --radius-checkbox: 0.25rem;
+
+  /* ---------- Spacing tokens ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-18: 4.5rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-28: 7rem;
+  --space-30: 7.5rem;
+
+  /* Section padding (the system's primary vertical rhythm) */
+  --section-y: 4rem;     /* 64px mobile */
+  --section-x: 5%;       /* horizontal page gutter */
+
+  /* ---------- Bubble shadow (signature stacked-card button shadow) ---------- */
+  --bubble-shadow-rest:  0 5px 0 0 var(--color-violet-5);
+  --bubble-shadow-press: 0 2px 0 0 var(--color-violet-5);
+  --bubble-shadow-light-rest:  0 5px 0 0 var(--color-neutral-2);
+  --bubble-shadow-light-press: 0 2px 0 0 var(--color-neutral-2);
+  --bubble-shadow-onDark-rest:  0 5px 0 0 var(--alpha-on-dark-20);
+  --bubble-shadow-onDark-press: 0 2px 0 0 var(--alpha-on-dark-20);
+
+  /* ---------- Breakpoints (reference) ---------- */
+  /* --bp-sm: 480px;  --bp-md: 768px;  --bp-lg: 992px; */
+
+  /* ---------- Container ---------- */
+  --container-max: 80rem;   /* 1280px */
+}
+
+/* Desktop scale upshift (≥ 992px) */
+@media (min-width: 992px) {
+  :root {
+    --text-h1: 3.5rem;     /* 56px */
+    --text-h2: 3rem;       /* 48px */
+    --text-h3: 2.5rem;     /* 40px */
+    --text-h4: 2rem;       /* 32px */
+    --text-h5: 1.5rem;     /* 24px */
+    --text-h6: 1.25rem;    /* 20px */
+    --text-large: 1.25rem;
+    --text-medium: 1.125rem;
+    --text-regular: 1rem;
+    --text-small: 0.875rem;
+    --text-tiny: 0.75rem;
+
+    --section-y: 7rem;     /* 112px desktop */
+  }
+}
+
+/* ============================================================
+   Color schemes — the design system's primary visual primitive.
+   Apply one of these on any <section>; descendants inherit
+   --bg / --fg / --accent / --border automatically.
+   ============================================================ */
+
+.scheme-1 {
+  /* White / default */
+  --bg: var(--color-white);
+  --bg-alt: var(--color-neutral-1);
+  --fg: var(--color-neutral-7);
+  --fg-muted: var(--color-neutral-5);
+  --accent: var(--color-violet);
+  --border: var(--alpha-fg-15);
+  --btn-text: var(--color-white);
+  --logo: "light";   /* meaning: use logo-light.png (dark wordmark) */
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+.scheme-2 {
+  /* Deep violet — used for logo strip, contrast block */
+  --bg: var(--color-violet);
+  --bg-alt: var(--color-violet-5);
+  --fg: var(--color-white);
+  --fg-muted: rgb(255 255 255 / 0.7);
+  --accent: var(--color-white);
+  --border: var(--alpha-on-dark-20);
+  --btn-text: var(--color-neutral-7);
+  --logo: "dark";    /* logo-dark.png (white wordmark) */
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+.scheme-3 {
+  /* Wild sand — barely-tinted off-white. Used for use-case section. */
+  --bg: var(--color-sand-1);
+  --bg-alt: var(--color-sand-2);
+  --fg: var(--color-neutral-7);
+  --fg-muted: var(--color-neutral-5);
+  --accent: var(--color-violet);
+  --border: var(--alpha-fg-15);
+  --btn-text: var(--color-white);
+  --logo: "light";
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+.scheme-4 {
+  /* Aquamarine — electric CTA block */
+  --bg: var(--color-aqua);
+  --bg-alt: var(--color-aqua-5);
+  --fg: var(--color-neutral-7);
+  --fg-muted: var(--color-neutral-6);
+  --accent: var(--color-violet);
+  --border: var(--alpha-fg-15);
+  --btn-text: var(--color-white);
+  --logo: "light";
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+.scheme-5 {
+  /* Pure black — footer */
+  --bg: var(--color-neutral-7);
+  --bg-alt: var(--color-neutral-6);
+  --fg: var(--color-white);
+  --fg-muted: rgb(255 255 255 / 0.7);
+  --accent: var(--color-white);
+  --border: var(--alpha-on-dark-20);
+  --btn-text: var(--color-neutral-7);
+  --logo: "dark";
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+/* ============================================================
+   Base typography
+   ============================================================ */
+
+html { font-family: var(--font-sans); color-scheme: light; }
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-regular);
+  line-height: var(--leading-normal);
+  color: var(--fg);
+  background: var(--bg);
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--text-h1); }
+h2 { font-size: var(--text-h2); }
+h3 { font-size: var(--text-h3); }
+h4 { font-size: var(--text-h4); line-height: var(--leading-snug); }
+h5 { font-size: var(--text-h5); line-height: 1.4; }
+h6 { font-size: var(--text-h6); line-height: 1.4; }
+
+p { margin: 0; line-height: var(--leading-normal); }
+
+.text-large   { font-size: var(--text-large); }
+.text-medium  { font-size: var(--text-medium); }
+.text-regular { font-size: var(--text-regular); }
+.text-small   { font-size: var(--text-small); }
+.text-tiny    { font-size: var(--text-tiny); }
+
+.eyebrow {
+  font-size: var(--text-regular);
+  font-weight: var(--weight-semibold);
+  line-height: 1.2;
+  margin-bottom: var(--space-3);
+  display: inline-block;
+}
+
+a { color: inherit; text-decoration: none; }
+a.link, .link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ============================================================
+   Reusable layout
+   ============================================================ */
+
+.section {
+  padding: var(--section-y) var(--section-x);
+}
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+/* ============================================================
+   Buttons — the system's signature "bubble" 3D button.
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  white-space: nowrap;
+  font-family: inherit;
+  font-size: var(--text-regular);
+  font-weight: var(--weight-medium);
+  padding: 0.625rem 1.5rem;
+  margin-bottom: 0.25rem; /* room for drop-shadow */
+  border: 0;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  text-decoration: none;
+}
+
+.btn--sm { padding: 0.375rem 1.25rem; }
+
+/* Primary — violet bg, white text, violet-dark stacked shadow */
+.btn--primary {
+  background: var(--color-violet);
+  color: var(--color-white);
+  box-shadow: var(--bubble-shadow-rest);
+}
+.btn--primary:hover {
+  transform: translateY(3px);
+  box-shadow: var(--bubble-shadow-press);
+}
+
+/* Alternate — flipped: white pill on dark imagery */
+.btn--alternate {
+  background: var(--color-white);
+  color: var(--color-neutral-7);
+  box-shadow: var(--bubble-shadow-light-rest);
+}
+.btn--alternate:hover {
+  transform: translateY(3px);
+  box-shadow: var(--bubble-shadow-light-press);
+}
+
+/* Secondary — translucent dark over light bg */
+.btn--secondary {
+  background: var(--alpha-fg-5);
+  color: var(--fg);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 0 0 var(--alpha-fg-15);
+}
+.btn--secondary:hover {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 0 var(--alpha-fg-15);
+}
+
+/* Secondary-alt — translucent white over dark imagery */
+.btn--secondary-alt {
+  background: var(--alpha-on-dark-10);
+  color: var(--color-white);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--bubble-shadow-onDark-rest);
+}
+.btn--secondary-alt:hover {
+  transform: translateY(3px);
+  box-shadow: var(--bubble-shadow-onDark-press);
+}
+
+/* ============================================================
+   Form inputs
+   ============================================================ */
+
+.input {
+  display: block;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  font-family: inherit;
+  font-size: var(--text-regular);
+  color: var(--fg);
+  background: var(--alpha-fg-5);
+  border: 1px solid transparent;
+  border-radius: var(--radius-form);
+  backdrop-filter: blur(10px);
+  transition: background 200ms;
+}
+.input::placeholder { color: var(--alpha-fg-60); }
+.input:hover { background: var(--alpha-fg-15); }
+.input:focus { outline: none; background: var(--alpha-fg-10); border-color: var(--accent); }
+
+/* On-dark variant — when inside .scheme-2 / .scheme-5 */
+.scheme-2 .input, .scheme-5 .input {
+  background: var(--alpha-on-dark-10);
+  color: var(--color-white);
+}
+.scheme-2 .input::placeholder, .scheme-5 .input::placeholder { color: var(--alpha-on-dark-60); }
+
+/* ============================================================
+   Badges
+   ============================================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+  border-radius: var(--radius-badge);
+  background: var(--alpha-fg-5);
+  color: var(--fg);
+  backdrop-filter: blur(10px);
+}
+.badge--outline {
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+/* ============================================================
+   Cards (flat style; 16px radius)
+   ============================================================ */
+
+.card {
+  background: var(--bg-alt);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+/* ============================================================
+   Utilities
+   ============================================================ */
+
+.divider { height: 1px; background: var(--border); width: 100%; }
+.image-rounded { border-radius: var(--radius-image); }
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }

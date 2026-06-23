@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cookie Policy | ICT</title>
+<link rel="icon" type="image/png" href="assets/ict-logo-small.png" />
+<link rel="apple-touch-icon" href="assets/ict-logo-small.png" />
+<meta name="theme-color" content="#0A091E" />
+<meta name="description" content="What cookies ICT uses, the categories we apply, and how to manage your preferences. GDPR-aligned and consent-based." />
+<link rel="canonical" href="https://www.ict.com.qa/cookie-policy" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ICT" />
+<meta property="og:title" content="Cookie Policy | ICT" />
+<meta property="og:description" content="What cookies ICT uses and how to manage your preferences." />
+<meta property="og:url" content="https://www.ict.com.qa/cookie-policy" />
+<meta property="og:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://unpkg.com" crossorigin />
+<link rel="stylesheet" href="ds/colors_and_type.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/service.css" />
+<link rel="stylesheet" href="css/pages.css" />
+<link rel="stylesheet" href="css/motion.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+<script src="components/enhance.js"></script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Footer.jsx"></script>
+<script type="text/babel" src="components/LegalPage.jsx"></script>
+<script type="text/babel">
+  const { useEffect } = React;
+  const LEGAL_DATA = {
+    title: "Cookie policy",
+    updated: "17 June 2026",
+    intro: [
+      "This Cookie Policy explains how ICT (Information &amp; Communication Technology W.L.L) uses cookies and similar technologies on this website, the categories we apply, and how you can control them. It should be read alongside our <a href=\"Privacy-Policy.html\">Privacy Policy</a>.",
+      "We follow a consent-based approach aligned with the EU General Data Protection Regulation (GDPR) and the ePrivacy Directive: strictly necessary cookies are always active, and no optional cookie is set until you have given your consent."
+    ],
+    sections: [
+      { h: "What cookies are", body: [
+        "Cookies are small text files placed on your device when you visit a website. They are widely used to make sites work, to remember your choices, and to provide information to site owners. Similar technologies, such as local storage, pixels, and tags, perform comparable functions, and we refer to all of them as \"cookies\" in this policy.",
+        "Cookies may be \"session\" cookies, which expire when you close your browser, or \"persistent\" cookies, which remain until they expire or you delete them. They may be set by ICT (\"first-party\") or by a third party providing a service on our behalf (\"third-party\")."
+      ] },
+      { h: "Types of cookies we use", body: [
+        "We group cookies into four categories. You can accept or reject each optional category through our preferences panel."
+      ] },
+      { h: "Essential cookies", body: [
+        "Strictly necessary for the website to function. They support core capabilities such as security, network management, and remembering your cookie choices. Because the site cannot work properly without them, they do not require consent and cannot be switched off.",
+        { ul: [
+          "Session security and load balancing.",
+          "Storing your cookie consent preferences so we do not ask you repeatedly."
+        ] }
+      ] },
+      { h: "Analytics cookies", body: [
+        "Help us understand, in aggregate, how visitors use the site, which pages are viewed, how people navigate, and where performance can improve. This information is used to make the site better and is collected only with your consent.",
+        { ul: [
+          "Usage and performance measurement (for example, Google Analytics or Microsoft Clarity).",
+          "Aggregated, anonymised reporting on site behaviour."
+        ] }
+      ] },
+      { h: "Functional cookies", body: [
+        "Remember choices you make to give you a more consistent and personalised experience. These are optional and set only with your consent.",
+        { ul: [
+          "Region or language preferences.",
+          "Layout and display settings."
+        ] }
+      ] },
+      { h: "Marketing cookies", body: [
+        "Used to measure the performance of our campaigns and to show relevant ICT content on other platforms. They are off by default and set only if you allow them.",
+        { ul: [
+          "Advertising measurement and campaign attribution (for example, the LinkedIn Insight Tag).",
+          "Audience and conversion tracking across platforms."
+        ] }
+      ] },
+      { h: "Third-party cookies", body: [
+        "Some cookies are set by third parties that provide services on our behalf, such as analytics and advertising platforms. These providers process data according to their own privacy and cookie notices. Where we use such services, we do so only within the category you have consented to, and we encourage you to review the relevant provider's policies."
+      ] },
+      { h: "Cookie consent", body: [
+        "When you first visit the site, a consent banner lets you accept all cookies, reject non-essential cookies, or manage your preferences by category. No analytics, functional, or marketing cookies are set until you make a choice. Your decision is stored so we can honour it on future visits, and it applies across the site.",
+        "You can review or change your choice at any time by opening the preferences panel."
+      ] },
+      { h: "Managing cookies", body: [
+        "You have two ways to control cookies on this site:",
+        { ul: [
+          "<strong>Our preferences panel</strong>, <a href=\"#\" data-cookie-settings>open cookie preferences</a> to turn categories on or off at any time.",
+          "<strong>Your browser settings</strong>, most browsers let you block or delete cookies. Note that blocking essential cookies may stop parts of the site from working."
+        ] },
+        "Clearing cookies in your browser will also clear your stored preference, so the consent banner will appear again on your next visit."
+      ] },
+      { h: "Changes to this cookie policy", body: [
+        "We may update this policy to reflect changes in the cookies we use or in legal requirements. When we do, we will revise the date at the top of this page. Where required, we will ask for your consent again."
+      ] },
+      { h: "Contact information", body: [
+        "If you have questions about our use of cookies, please contact us:",
+        { ul: [
+          "ICT (Information &amp; Communication Technology W.L.L), Doha, State of Qatar",
+          "Email: <a href=\"mailto:privacy@ict.com.qa\">privacy@ict.com.qa</a>",
+          "Or through our <a href=\"Contact-Us.html\">contact page</a>."
+        ] }
+      ] }
+    ]
+  };
+  function useScrollReveal(){ useEffect(()=>{ document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-in')); },[]); }
+  function App(){ useScrollReveal();
+    return (<><Nav /><main id="main-content" tabIndex="-1"><LegalPage data={LEGAL_DATA} /></main><Footer /></>); }
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+<script src="components/cookie-consent.js"></script>
+</body>
+</html>

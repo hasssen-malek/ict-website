@@ -1,0 +1,113 @@
+/* =========================================================================
+   ICT — Colour Foundations
+   Dark-first. A midnight canvas with a warm-paper inversion, a cool indigo-
+   tinted neutral ramp, and the seven-stop brand "Spectrum" used only as an
+   accent — discrete ticks or a single keyword fill, never a flooded
+   marketing gradient. Every text pairing below clears WCAG 2.2 AA.
+   ========================================================================= */
+
+:root {
+  /* ===================== BRAND SPECTRUM =====================
+     The signature seven-colour spectrum runs cool -> warm.
+     Use one accent per surface, or the full set as discrete geometry. */
+  --ict-electric-blue:  #0098FF;
+  --ict-core-indigo:    #370FDD;   /* primary brand / primary button */
+  --ict-violet-blue:    #612DF5;
+  --ict-magenta:        #CC47AB;
+  --ict-digital-orange: #FC7F40;
+  --ict-signal-red:     #FF2A68;
+
+  /* spectrum as ordered ticks (the brand mark's DNA) */
+  --tick-1: #0098FF;
+  --tick-2: #370FDD;
+  --tick-3: #612DF5;
+  --tick-4: #CC47AB;
+  --tick-5: #FC7F40;
+  --tick-6: #FF2A68;
+
+  /* ===================== DARK NEUTRAL RAMP (INK) =====================
+     Cool, slightly indigo-tinted so it never goes flat-grey on midnight. */
+  --ict-ink-0:  #050416;   /* deepest — hero / cta wells          */
+  --ict-ink-1:  #0A091E;   /* midnight — primary app background    */
+  --ict-ink-2:  #100F26;   /* elevated surface (cards)             */
+  --ict-ink-3:  #1A1936;   /* hover / 2nd level                    */
+  --ict-ink-4:  #252346;   /* borders, dividers on dark            */
+  --ict-ink-5:  #393764;   /* muted strokes                        */
+  --ict-ink-6:  #5C5A86;   /* faint text (decorative)              */
+  --ict-ink-7:  #8A88AE;   /* tertiary / mono text                 */
+  --ict-ink-8:  #C7C5DE;   /* secondary text on dark               */
+  --ict-ink-9:  #F4F3FB;   /* primary text on dark                 */
+  --ict-ink-10: #FFFFFF;   /* high-emphasis / headings — sparingly */
+
+  /* ===================== WARM PAPER (LIGHT INVERSION) =====================
+     Premium, slightly warm paper for "light" sections. Not pure white. */
+  --ict-paper-0: #F3F1EA;  /* primary paper canvas */
+  --ict-paper-1: #E9E6DC;  /* deeper paper block   */
+  --ict-paper-2: #DAD6C8;  /* paper hairline tone  */
+  --on-paper:      #15131F;
+  --on-paper-soft: #46434F;
+  --on-paper-mute: #6E6976;  /* AA-cleared mute on paper */
+
+  /* ===================== SEMANTIC SURFACES ===================== */
+  --color-bg:            var(--ict-ink-1);
+  --color-bg-deep:       var(--ict-ink-0);
+  --color-bg-elevated:   var(--ict-ink-2);
+  --color-bg-overlay:    rgba(6, 5, 18, 0.72);
+  --color-surface:       var(--ict-ink-2);
+  --color-surface-hover: var(--ict-ink-3);
+  --color-paper:         var(--ict-paper-0);
+  --color-paper-2:       var(--ict-paper-1);
+
+  /* ===================== SEMANTIC TEXT (on dark) ===================== */
+  --color-fg:        var(--ict-ink-9);   /* default text     */
+  --color-fg-strong: var(--ict-ink-10);  /* headings (white) */
+  --color-fg-muted:  var(--ict-ink-8);   /* secondary        */
+  --color-fg-subtle: var(--ict-ink-7);   /* tertiary / mono  */
+  --color-fg-faint:  #807EA6;            /* faint, AA-cleared */
+
+  /* ===================== BORDERS / RULES ===================== */
+  --color-border:        rgba(255, 255, 255, 0.12);
+  --color-border-strong: rgba(255, 255, 255, 0.18);
+  --color-border-soft:   rgba(255, 255, 255, 0.07);
+  --rule-paper:          rgba(21, 19, 31, 0.16);
+  --rule-paper-soft:     rgba(21, 19, 31, 0.08);
+
+  /* ===================== ACCENTS / STATE ===================== */
+  --color-accent:      var(--ict-core-indigo);   /* primary action       */
+  --color-accent-blue: var(--ict-electric-blue); /* links / info on dark */
+  --color-accent-warm: var(--ict-digital-orange);
+
+  --color-success: #2ED98C;
+  --color-warning: var(--ict-digital-orange);
+  --color-danger:  var(--ict-signal-red);
+  --color-info:    var(--ict-electric-blue);
+  --color-focus:   #6FB6FF;   /* keyboard focus ring on dark */
+
+  /* ===================== PER-SURFACE ACCENT HUES =====================
+     Each section opts into one hue. Two values per hue: a bright "-d" for
+     dark surfaces, a deepened "-p" for paper — both contrast-checked. */
+  --hue-blue-d:    #2BA4FF;  --hue-blue-p:    #1366C8;
+  --hue-purple-d:  #8472FF;  --hue-purple-p:  #3D1FC0;
+  --hue-violet-d:  #B481FF;  --hue-violet-p:  #6A28D8;
+  --hue-magenta-d: #E36CC4;  --hue-magenta-p: #A8328A;
+  --hue-orange-d:  #FF9255;  --hue-orange-p:  #C85A1E;
+
+  /* ===================== SIGNATURE GRADIENTS =====================
+     Reserved for the brand mark, hero atmospherics, and the single boxed
+     CTA panel. Never use as a default surface fill. */
+  --grad-spectrum: linear-gradient(90deg,
+    #0098FF 0%, #370FDD 22%, #612DF5 42%, #CC47AB 62%, #FC7F40 82%, #FF2A68 100%); /* @kind color */
+  --grad-spectrum-diag: linear-gradient(135deg,
+    #0098FF 0%, #612DF5 38%, #CC47AB 65%, #FC7F40 88%, #FF2A68 100%); /* @kind color */
+  /* atmospheric hero glow on midnight (very low opacity) */
+  --grad-aurora:
+    radial-gradient(60% 80% at 15% 10%, rgba(0,152,255,0.30), transparent 70%),
+    radial-gradient(55% 70% at 85% 20%, rgba(204,71,171,0.22), transparent 70%),
+    radial-gradient(70% 60% at 50% 100%, rgba(97,45,245,0.30), transparent 75%); /* @kind color */
+  /* the one boxed CTA panel */
+  --grad-cta-box:
+    radial-gradient(130% 120% at 7% 4%, #1E8BFF 0%, rgba(30,139,255,0) 46%),
+    radial-gradient(120% 120% at 100% 100%, #FF6A3D 0%, rgba(255,106,61,0) 46%),
+    radial-gradient(120% 130% at 86% 80%, #FF2A68 0%, rgba(255,42,104,0) 52%),
+    linear-gradient(120deg, #2C5BE0 0%, #5A2BE6 34%, #8E2FD0 56%, #C7368F 76%, #F2683F 100%); /* @kind color */
+}

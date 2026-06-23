@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ICT | Digital Transformation in Qatar</title>
+<link rel="icon" type="image/png" href="assets/ict-logo-small.png" />
+<link rel="apple-touch-icon" href="assets/ict-logo-small.png" />
+<meta name="theme-color" content="#0A091E" />
+<meta name="description" content="ICT helps organisations in Qatar modernise infrastructure, secure it, and put data and AI to work. A Microsoft partner since the 2010s." />
+<link rel="canonical" href="https://www.ict.com.qa/" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ICT" />
+<meta property="og:locale" content="en" />
+<meta property="og:title" content="ICT | Digital Transformation in Qatar" />
+<meta property="og:description" content="ICT helps organisations in Qatar modernise infrastructure, secure it, and put data and AI to work." />
+<meta property="og:url" content="https://www.ict.com.qa/" />
+<meta property="og:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ICT | Digital Transformation in Qatar" />
+<meta name="twitter:description" content="ICT helps organisations in Qatar modernise infrastructure, secure it, and put data and AI to work." />
+<meta name="twitter:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<!-- TODO[VERIFY]: foundingDate 2005, partner counts -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ICT W.L.L","alternateName":"ICT","url":"https://www.ict.com.qa/","logo":"https://www.ict.com.qa/assets/ict-logo.png","description":"Digital transformation partner in Doha, Qatar, helping organisations modernise infrastructure, secure it, and put data and AI to work.","foundingDate":"2005","address":{"@type":"PostalAddress","addressLocality":"Doha","addressCountry":"QA"},"contactPoint":{"@type":"ContactPoint","email":"info@ict.com.qa","telephone":"+974 4440 5000","contactType":"sales","areaServed":"QA"},"areaServed":{"@type":"Country","name":"Qatar"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"ICT","url":"https://www.ict.com.qa/"}</script>
+
+<link rel="preconnect" href="https://unpkg.com" crossorigin />
+<link rel="stylesheet" href="ds/colors_and_type.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/pages.css" />
+<link rel="stylesheet" href="css/service.css" />
+<link rel="stylesheet" href="css/home.css" />
+<link rel="stylesheet" href="css/motion.css" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="components/enhance.js"></script>
+<script src="components/field.js"></script>
+<script src="components/squarefield.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Hero.jsx"></script>
+<script type="text/babel" src="components/PageKit.jsx"></script>
+<script type="text/babel" src="components/PartnerLogo.jsx"></script>
+<script type="text/babel" src="components/Partners.jsx"></script>
+<script type="text/babel" src="components/WhyICT.jsx"></script>
+<script type="text/babel" src="components/SuccessStories.jsx"></script>
+<script type="text/babel" src="components/home2.jsx"></script>
+<script type="text/babel" src="components/Footer.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+
+<script type="text/babel">
+  const { useEffect } = React;
+
+  function useScrollReveal() {
+    useEffect(() => {
+      const els = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        els.forEach((el) => el.classList.add("is-in"));
+        return;
+      }
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+          }
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -50px 0px" }
+      );
+      els.forEach((el) => io.observe(el));
+      return () => io.disconnect();
+    }, []);
+  }
+
+  /* TODO[VERIFY]: founding year and Microsoft designation count in FAQ answers */
+  const FAQ_ITEMS = [
+    { q: "What does ICT do?", a: "ICT is a digital transformation partner in Doha, Qatar. We help organisations modernise their infrastructure, secure it, and put their data and AI to work, across consulting, cloud and infrastructure, cybersecurity, data and AI, enterprise applications, customer experience, managed services, and emerging tech." },
+    { q: "Where is ICT based?", a: "ICT is based in Doha, Qatar, and has worked across the country's most demanding sectors, including government, finance, and healthcare, since 2005." },
+    { q: "What is ICT's relationship with Microsoft?", a: "ICT is a member of the Microsoft AI Cloud Partner Program, with five Solutions Partner designations and sixteen specializations across Azure, security, data and AI, and modern work." },
+    { q: "Does ICT only run AI pilots, or production systems?", a: "We focus on AI that reaches production: governed, secure systems that run inside your business every day, built on a data foundation you can trust, rather than proofs of concept that stall after the pilot." },
+  ];
+
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "accent": "#370FDD",
+    "displayFont": "Space Grotesk",
+    "ambientMotion": true
+  }/*EDITMODE-END*/;
+
+  function App() {
+    const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+    useScrollReveal();
+
+    useEffect(() => {
+      const root = document.documentElement;
+      root.style.setProperty("--ict-core-indigo", t.accent);
+      root.style.setProperty("--ed-display", `"${t.displayFont}", system-ui, sans-serif`);
+      root.classList.toggle("motion-off", !t.ambientMotion);
+    }, [t.accent, t.displayFont, t.ambientMotion]);
+
+    return (
+      <>
+        <Nav />
+        <main id="main-content" tabIndex="-1">
+          <Hero />
+          <HomeWhatWeDo />
+          <HomePillars />
+          <HomeAISpotlight />
+          <HomeIndustries />
+          <SuccessStories />
+          <Partners />
+          <WhyICT />
+          <HomeInsights />
+          <FaqBlock eyebrow="FAQ" title="Questions, answered." hl="answered" hue="blue" items={FAQ_ITEMS} bg="s-ink-deep" />
+          <HomeContact />
+        </main>
+        <Footer />
+        <TweaksPanel>
+          <TweakSection label="Brand" />
+          <TweakColor label="Accent" value={t.accent}
+            options={["#370FDD", "#0098FF", "#612DF5", "#19C6D6"]}
+            onChange={(v) => setTweak("accent", v)} />
+          <TweakRadio label="Headline font" value={t.displayFont}
+            options={["Space Grotesk", "Inter"]}
+            onChange={(v) => setTweak("displayFont", v)} />
+          <TweakSection label="Motion" />
+          <TweakToggle label="Ambient motion" value={t.ambientMotion}
+            onChange={(v) => setTweak("ambientMotion", v)} />
+        </TweaksPanel>
+      </>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+<script src="components/cookie-consent.js"></script>
+</body>
+</html>

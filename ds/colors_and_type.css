@@ -1,0 +1,293 @@
+/* =========================================================================
+   ICT — Colors & Type Foundations
+   Qatar-based enterprise technology & digital transformation
+   ========================================================================= */
+
+/* -------- Webfonts -------- */
+@font-face {
+  font-family: "Space Grotesk";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url("./fonts/SpaceGrotesk-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Space Grotesk";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("./fonts/SpaceGrotesk-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Space Grotesk";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("./fonts/SpaceGrotesk-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Space Grotesk";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url("./fonts/SpaceGrotesk-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Space Grotesk";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("./fonts/SpaceGrotesk-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  src: url("./fonts/Inter-VariableFont.ttf") format("truetype-variations");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  src: url("./fonts/Inter-Italic-VariableFont.ttf") format("truetype-variations");
+}
+/* Poppins — Google Fonts substitute (no TTF provided). See README. */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  /* ===================== BRAND PALETTE =====================
+     The seven-color spectrum is the brand's signature. They run
+     cool→warm: blue → indigo → violet → magenta → orange → red.
+     They are never mixed at random; use as a gradient or pick
+     one accent per surface. */
+  --ict-midnight:        #0A091E;   /* primary background */
+  --ict-electric-blue:   #0098FF;
+  --ict-core-indigo:     #370FDD;
+  --ict-violet-blue:     #612DF5;
+  --ict-magenta:         #CC47AB;
+  --ict-digital-orange:  #FC7F40;
+  --ict-signal-red:      #FF2A68;
+
+  /* ===================== NEUTRALS (dark-first) =====================
+     A cool, slightly indigo-tinted neutral ramp. Designed to sit on
+     top of Midnight without going gray-flat. */
+  --ict-ink-0:   #050416;   /* deeper than midnight for layered surfaces */
+  --ict-ink-1:   #0A091E;   /* === midnight, app background           */
+  --ict-ink-2:   #11102A;   /* elevated surface (cards)               */
+  --ict-ink-3:   #1A1936;   /* hover / 2nd level                      */
+  --ict-ink-4:   #252346;   /* borders, dividers on dark              */
+  --ict-ink-5:   #393764;   /* muted strokes                          */
+  --ict-ink-6:   #5C5A86;   /* tertiary text                          */
+  --ict-ink-7:   #8A88AE;   /* secondary text                         */
+  --ict-ink-8:   #C4C2DD;   /* primary text on dark (softened white)  */
+  --ict-ink-9:   #ECEBF7;   /* high-emphasis text / headings          */
+  --ict-ink-10:  #FFFFFF;   /* pure white — sparingly                 */
+
+  /* ===================== SEMANTIC COLORS ===================== */
+  --color-bg:            var(--ict-ink-1);
+  --color-bg-elevated:   var(--ict-ink-2);
+  --color-bg-overlay:    rgba(10, 9, 30, 0.72);
+  --color-surface:       var(--ict-ink-2);
+  --color-surface-hover: var(--ict-ink-3);
+
+  --color-fg:            var(--ict-ink-9);   /* default text */
+  --color-fg-strong:     var(--ict-ink-10);  /* H1 white */
+  --color-fg-muted:      var(--ict-ink-8);
+  --color-fg-subtle:     var(--ict-ink-7);
+  --color-fg-faint:      var(--ict-ink-6);
+
+  --color-border:        rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+  --color-border-accent: var(--ict-violet-blue);
+
+  --color-accent:        var(--ict-electric-blue);
+  --color-accent-2:      var(--ict-violet-blue);
+  --color-accent-warm:   var(--ict-digital-orange);
+
+  --color-success:       #2ED98C;
+  --color-warning:       var(--ict-digital-orange);
+  --color-danger:        var(--ict-signal-red);
+  --color-info:          var(--ict-electric-blue);
+
+  /* ===================== SIGNATURE GRADIENTS =====================
+     The "Spectrum" is ICT's hero gradient — used full-bleed in heroes,
+     as a text fill on hero words, and along thin accent lines. */
+  --grad-spectrum: linear-gradient(
+    90deg,
+    #0098FF 0%,
+    #370FDD 22%,
+    #612DF5 42%,
+    #CC47AB 62%,
+    #FC7F40 82%,
+    #FF2A68 100%
+  );
+  --grad-spectrum-diag: linear-gradient(
+    135deg,
+    #0098FF 0%,
+    #612DF5 38%,
+    #CC47AB 65%,
+    #FC7F40 88%,
+    #FF2A68 100%
+  );
+  /* Cool half — for tech / infra surfaces */
+  --grad-cool: linear-gradient(135deg, #0098FF 0%, #370FDD 60%, #612DF5 100%);
+  /* Primary-button gradient — vibrant indigo → violet → electric blue */
+  --grad-button: linear-gradient(135deg, #370FDD 0%, #612DF5 50%, #0098FF 100%);
+  /* Warm half — for AI / human / customer surfaces */
+  --grad-warm: linear-gradient(135deg, #CC47AB 0%, #FC7F40 60%, #FF2A68 100%);
+  /* Aurora — atmospheric hero glow on Midnight */
+  --grad-aurora: radial-gradient(
+      60% 80% at 15% 10%, rgba(0, 152, 255, 0.35), transparent 70%
+    ),
+    radial-gradient(
+      55% 70% at 85% 20%, rgba(204, 71, 171, 0.30), transparent 70%
+    ),
+    radial-gradient(
+      70% 60% at 50% 100%, rgba(97, 45, 245, 0.35), transparent 75%
+    );
+  /* Subtle elevation gradient inside cards */
+  --grad-card: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.00) 100%);
+
+  /* ===================== TYPOGRAPHY ===================== */
+  --font-display:  "Poppins", "Space Grotesk", system-ui, sans-serif;
+  --font-sub:      "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-body:     "Inter", "Space Grotesk", system-ui, sans-serif;
+  --font-mono:     ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+
+  /* Type scale — fluid-ish, optimized for premium dark UI */
+  --fs-display-xl: clamp(56px, 8vw, 112px);   /* hero */
+  --fs-display-l:  clamp(44px, 5.6vw, 80px);
+  --fs-display-m:  clamp(36px, 4.2vw, 60px);
+  --fs-h1:         clamp(32px, 3.4vw, 48px);
+  --fs-h2:         clamp(26px, 2.6vw, 36px);
+  --fs-h3:         22px;
+  --fs-h4:         18px;
+  --fs-body-l:     18px;
+  --fs-body:       16px;
+  --fs-body-s:     14px;
+  --fs-caption:    13px;
+  --fs-micro:      11px;
+
+  --lh-tight:   1.04;
+  --lh-snug:    1.18;
+  --lh-normal:  1.45;
+  --lh-relaxed: 1.6;
+
+  --ls-display: -0.025em;
+  --ls-heading: -0.015em;
+  --ls-eyebrow:  0.16em;     /* uppercase eyebrows */
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ===================== SPACING ===================== */
+  --space-0:   0;
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  /* ===================== RADII ===================== */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:  12px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-2xl: 32px;
+  --radius-pill: 999px;
+
+  /* ===================== ELEVATION ===================== */
+  /* Dark UI: shadows are deep + subtle, paired with inner highlight. */
+  --shadow-1: 0 1px 0 rgba(255,255,255,0.04) inset, 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-2: 0 1px 0 rgba(255,255,255,0.05) inset, 0 8px 24px rgba(0,0,0,0.45);
+  --shadow-3: 0 1px 0 rgba(255,255,255,0.06) inset, 0 18px 48px rgba(0,0,0,0.55);
+  --shadow-glow-blue:    0 0 0 1px rgba(0,152,255,0.35), 0 8px 40px rgba(0,152,255,0.35);
+  --shadow-glow-violet:  0 0 0 1px rgba(97,45,245,0.45), 0 8px 40px rgba(97,45,245,0.40);
+  --shadow-glow-magenta: 0 0 0 1px rgba(204,71,171,0.40), 0 8px 40px rgba(204,71,171,0.35);
+
+  /* ===================== MOTION ===================== */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);     /* default */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast:   120ms;
+  --dur-base:   220ms;
+  --dur-slow:   420ms;
+  --dur-cinema: 800ms;
+}
+
+/* =========================================================================
+   ELEMENT DEFAULTS — assume dark-mode-first.
+   Drop colors_and_type.css onto a page and these styles apply.
+   ========================================================================= */
+html, body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-fg-strong);
+  letter-spacing: var(--ls-heading);
+  line-height: var(--lh-snug);
+  margin: 0;
+  font-weight: var(--fw-semibold);
+}
+h1 { font-size: var(--fs-h1); letter-spacing: var(--ls-display); line-height: var(--lh-tight); font-weight: var(--fw-bold); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); font-family: var(--font-sub); }
+
+p { margin: 0; color: var(--color-fg-muted); }
+
+a {
+  color: var(--ict-electric-blue);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+a:hover { color: #66BFFF; }
+
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+::selection {
+  background: rgba(97, 45, 245, 0.45);
+  color: #fff;
+}
+
+/* Eyebrow — uppercase label used above section titles */
+.eyebrow {
+  font-family: var(--font-sub);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-caption);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-fg-subtle);
+}
+
+/* Spectrum text — gradient fill, used on a single hero word */
+.spectrum-text {
+  background: var(--grad-spectrum);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}

@@ -1,0 +1,123 @@
+/* =========================================================================
+   ICT — Typography Foundations
+   Space Grotesk carries display & headings (architectural, confident).
+   Inter carries body & UI (comfortable long-form reading). A mono stack
+   sets eyebrows, indices, and metadata. Type + space do the heavy lifting;
+   colour stays an accent.
+   ========================================================================= */
+
+:root {
+  /* ---- families ---- */
+  --font-display: "Space Grotesk", system-ui, sans-serif;  /* headings, hero */
+  --font-body:    "Inter", system-ui, sans-serif;          /* body, UI text  */
+  --font-mono:    ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Consolas, monospace; /* labels, indices */
+
+  /* ---- editorial type scale (fluid, architectural — not oversized) ---- */
+  --fs-hero:    clamp(36px, 4.6vw, 66px);   /* @kind font */
+  --fs-display: clamp(29px, 3.5vw, 52px);   /* @kind font */
+  --fs-stmt:    clamp(25px, 2.9vw, 42px);   /* @kind font */
+  --fs-h1:      clamp(28px, 3.0vw, 44px);  /* @kind font */
+  --fs-h2:      clamp(22px, 2.2vw, 33px);  /* @kind font */
+  --fs-h3:      clamp(21px, 1.9vw, 27px);  /* @kind font */
+  --fs-h4:      18px;  /* @kind font */
+  --fs-lead:    clamp(19px, 1.5vw, 23px);   /* @kind font */
+  --fs-body-l:  18px;  /* @kind font */
+  --fs-body:    17px;  /* @kind font */
+  --fs-body-s:  15px;  /* @kind font */
+  --fs-caption: 13px;  /* @kind font */
+  --fs-label:   12.5px;                     /* @kind font */
+  --fs-micro:   11px;  /* @kind font */
+
+  /* ---- weights ---- */
+  --fw-light:    300;  /* @kind font */
+  --fw-regular:  400;  /* @kind font */
+  --fw-medium:   500;   /* @kind font */
+  --fw-semibold: 600;  /* @kind font */
+  --fw-bold:     700;  /* @kind font */
+
+  /* ---- line-heights ---- */
+  --lh-tight:   1.04;   /* @kind other */
+  --lh-snug:    1.14;   /* @kind other */
+  --lh-normal:  1.45;  /* @kind other */
+  --lh-relaxed: 1.6;    /* @kind other */
+
+  /* ---- letter-spacing ---- */
+  --ls-display: -0.028em;  /* @kind other */
+  --ls-heading: -0.018em;  /* @kind other */
+  --ls-body:     0;  /* @kind other */
+  --ls-eyebrow:  0.2em;   /* @kind other */
+  --ls-mono:     0.04em;  /* @kind other */
+}
+
+/* =========================================================================
+   ELEMENT DEFAULTS — dark-first. Link these tokens onto a page and text,
+   headings, links, and selection adopt the ICT voice immediately.
+   ========================================================================= */
+html, body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  color: var(--color-fg-strong);
+  letter-spacing: var(--ls-heading);
+  line-height: var(--lh-snug);
+  margin: 0;
+  text-wrap: balance;
+}
+h1 { font-size: var(--fs-h1); letter-spacing: var(--ls-display); line-height: var(--lh-tight); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+
+p { margin: 0; color: var(--color-fg-muted); text-wrap: pretty; }
+
+a {
+  color: var(--color-accent-blue);
+  text-decoration: none;
+  transition: color 160ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+a:hover { color: #66BFFF; }
+
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+::selection { background: var(--ict-violet-blue); color: #fff; }
+
+/* Eyebrow / kicker — mono, uppercase, wide tracking, with a leading accent tick */
+.ict-eyebrow {
+  font-family: var(--font-mono);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-fg-subtle);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.ict-eyebrow::before {
+  content: "";
+  width: 16px;
+  height: 2px;
+  background: var(--accent, var(--tick-3));
+}
+
+/* Spectrum text — gradient fill, reserved for a single hero keyword */
+.ict-spectrum-text {
+  background: var(--grad-spectrum);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}

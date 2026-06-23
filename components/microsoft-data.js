@@ -1,0 +1,192 @@
+/* global window */
+/* Microsoft practice — mini-site data. Source of truth: workbook "Microsoft Page" tab.
+   Designations/specializations/products are the verified set from MicrosoftPage.jsx.
+   Counts and Partner ID stay [VERIFY] until renewal-confirmed. */
+
+window.MS_NAV = [
+  { h: "Partnership Overview", href: "Microsoft.html" },
+  { h: "Azure Cloud & Infrastructure", href: "Microsoft-Azure.html" },
+  { h: "Data & AI on Azure", href: "Microsoft-Data-AI.html" },
+  { h: "Security & Identity", href: "Microsoft-Security.html" },
+  { h: "Modern Work & Copilot", href: "Microsoft-Modern-Work.html" },
+  { h: "Why ICT on Microsoft", href: "Microsoft-Why-ICT.html" },
+  { h: "ICT Unified Enterprise Search", href: "Microsoft-Enterprise-Search.html" },
+  { h: "DocumentIQ by ICT", href: "Microsoft-DocumentIQ.html" },
+];
+
+window.MS_SUB = {
+  azure: {
+    file: "Microsoft-Azure.html", url: "/partners/microsoft/azure", hue: "blue", figure: "cloud",
+    crumb: "Azure Cloud & Infrastructure", schema: "Service",
+    eyebrow: "Microsoft practice",
+    title: "Azure cloud and infrastructure.", hl: "infrastructure",
+    intro: "We move workloads off ageing hardware and into Azure, then keep them running. Migration, modernisation, and resilient platform operations, mapped to the Azure specializations we have earned.",
+    metaDesc: "ICT's Azure cloud and infrastructure practice in Qatar: Azure and VMware migration, Azure Virtual Desktop, Kubernetes, and database migration.",
+    audience: ["Infrastructure Director", "Cloud Lead"],
+    topicsEyebrow: "What we deliver", topicsTitle: "Infrastructure transformation on Azure.", topicsHl: "on Azure",
+    topics: [
+      { icon: "azure", h: "Azure migrations", p: "Move infrastructure and workloads to Azure with governance and cost control intact." },
+      { icon: "cloud", h: "VMware migration", p: "Extend or replatform VMware estates with Azure VMware Solution." },
+      { icon: "workplace", h: "Azure Virtual Desktop", p: "Secure, scalable desktops delivered from the Microsoft cloud." },
+      { icon: "layers", h: "Kubernetes on Azure", p: "Containerised platforms built to scale on AKS." },
+      { icon: "data", h: "Database migration", p: "Infrastructure and database migration with minimal downtime." },
+      { icon: "improve", h: "Infrastructure modernization", p: "Re-engineer ageing estates into agile, resilient foundations." },
+    ],
+    cross: [
+      { h: "Cloud & Infrastructure services", href: "Service-Cloud-Infrastructure.html" },
+      { h: "Hybrid Cloud case study", href: "Case-Hybrid-Cloud.html" },
+      { h: "Industries", href: "Industries.html" },
+    ],
+    cta: "Talk to our Microsoft team",
+  },
+
+  dataai: {
+    file: "Microsoft-Data-AI.html", url: "/partners/microsoft/data-ai", hue: "magenta", figure: "aihub",
+    crumb: "Data & AI on Azure", schema: "Service",
+    eyebrow: "Microsoft practice",
+    title: "Data and AI on Azure.", hl: "AI on Azure",
+    intro: "We build the data foundation, then the AI that runs on it. From Microsoft Fabric and Azure AI to analytics and production AI apps, connected to ICT's wider AI and data practice.",
+    metaDesc: "ICT's Microsoft data and AI practice: Microsoft Fabric, Azure AI, AI Platform and Apps, analytics, and Databricks integration.",
+    audience: ["Chief Data Officer", "Head of Analytics"],
+    topicsEyebrow: "What we deliver", topicsTitle: "From data foundation to production AI.", topicsHl: "production AI",
+    topics: [
+      { icon: "data", h: "Microsoft Fabric", p: "One governed analytics foundation across data engineering, warehousing, and BI." },
+      { icon: "ai", h: "Azure AI", p: "Build and run AI on the Azure AI platform, securely and at scale." },
+      { icon: "operations", h: "AI Platform & Apps", p: "AI Platform and AI Apps on Microsoft Azure, moved into production." },
+      { icon: "improve", h: "Analytics", p: "Decision-grade analytics and data-warehouse migration." },
+      { icon: "layers", h: "Databricks integration", p: "Lakehouse and advanced analytics integrated with the Microsoft cloud." },
+    ],
+    note: { h: "Reserve space for ICT AI products", p: "This hub is the entry point for ICT's proprietary AI platforms on Azure once they are named and launched, including DocumentIQ and ICT Unified Enterprise Search." },
+    cross: [
+      { h: "AI & Data hub", href: "AI-Data.html" },
+      { h: "DocumentIQ by ICT", href: "Microsoft-DocumentIQ.html" },
+      { h: "Investment Research Assistant", href: "Case-Investment-Research.html" },
+    ],
+    cta: "Talk to our Microsoft team",
+  },
+
+  security: {
+    file: "Microsoft-Security.html", url: "/partners/microsoft/security", hue: "violet", figure: "security",
+    crumb: "Security & Identity", schema: "Service",
+    eyebrow: "Microsoft practice",
+    title: "Security and identity.", hl: "identity",
+    intro: "We secure who gets in, what they can reach, and the data underneath. Cloud security, identity, data protection, and threat protection, under the Microsoft Security designation.",
+    metaDesc: "ICT's Microsoft security practice: Microsoft Defender, Microsoft Entra, identity and access management, data security, threat protection, and compliance.",
+    audience: ["CISO", "Security Lead", "Risk Manager"],
+    topicsEyebrow: "What we deliver", topicsTitle: "Protection across identity, data, and cloud.", topicsHl: "identity, data, and cloud",
+    topics: [
+      { icon: "shield", h: "Microsoft Defender", p: "Threat protection across endpoints, identities, cloud, and email." },
+      { icon: "identity", h: "Microsoft Entra", p: "Identity and access management with conditional access and governance." },
+      { icon: "lock", h: "Identity & Access Management", p: "Strong identity controls for users, apps, and critical assets." },
+      { icon: "data", h: "Data security", p: "Classify, protect, and prevent loss of sensitive data." },
+      { icon: "radar", h: "Threat protection", p: "Continuous detection and response across the estate." },
+      { icon: "check", h: "Compliance", p: "Governance and compliance aligned to ISO, NIST, and local regulation." },
+    ],
+    cross: [
+      { h: "Cybersecurity & Digital Resilience", href: "Service-Cybersecurity.html" },
+      { h: "Industries", href: "Industries.html" },
+      { h: "Why ICT on Microsoft", href: "Microsoft-Why-ICT.html" },
+    ],
+    cta: "Talk to our Microsoft team",
+  },
+
+  modernwork: {
+    file: "Microsoft-Modern-Work.html", url: "/partners/microsoft/modern-work", hue: "orange", figure: "leadership",
+    crumb: "Modern Work & Copilot", schema: "Service",
+    eyebrow: "Microsoft practice",
+    title: "Modern work and Copilot.", hl: "Copilot",
+    intro: "We help teams actually use Microsoft 365 and Copilot, not just switch them on. Adoption, change management, and endpoint modernisation that gets people on board and productive.",
+    metaDesc: "ICT's Microsoft 365 and Copilot practice: Copilot rollout and adoption, endpoint management, change management, productivity, and collaboration.",
+    audience: ["CIO", "Head of IT", "Workplace Lead"],
+    topicsEyebrow: "What we deliver", topicsTitle: "A workplace people actually adopt.", topicsHl: "people actually adopt",
+    topics: [
+      { icon: "workplace", h: "Microsoft 365", p: "Modern workplace foundations across the Microsoft 365 suite." },
+      { icon: "copilot", h: "Copilot", p: "Copilot for Microsoft 365, grounded in your data and governed." },
+      { icon: "managed", h: "Endpoint management", p: "Modernise and secure devices with Intune and endpoint management." },
+      { icon: "improve", h: "Change management", p: "Adoption and change management that lands the rollout." },
+      { icon: "bolt", h: "Productivity", p: "Knowledge retrieval, AI agents, and intelligent workflows." },
+      { icon: "partner", h: "Collaboration", p: "Connected collaboration across Teams and the modern workplace." },
+    ],
+    note: { h: "Highlight: Copilot rollout and adoption", p: "We lead with adoption and outcomes, a structured Copilot rollout, governance, and change management that turns licences into measurable productivity." },
+    cross: [
+      { h: "Customer Experience Platforms", href: "Service-Customer-Experience.html" },
+      { h: "Managed & Support Services", href: "Service-Managed-Services.html" },
+      { h: "AI & Data hub", href: "AI-Data.html" },
+    ],
+    cta: "Talk to our Microsoft team",
+  },
+
+  whyict: {
+    file: "Microsoft-Why-ICT.html", url: "/partners/microsoft/why-ict", hue: "blue", figure: "partners",
+    crumb: "Why ICT on Microsoft", schema: "Service",
+    eyebrow: "Trust & credentials",
+    title: "Why ICT on Microsoft.", hl: "Why ICT",
+    intro: "Our certifications are earned by delivering projects, not by sitting an exam. ICT is a Microsoft AI Cloud Partner Program member, with Solutions Partner designations and specializations across the Microsoft cloud.",
+    metaDesc: "Why choose ICT on Microsoft: Solutions Partner designations, Microsoft AI Cloud Partner Program membership, and verified credentials.",
+    audience: ["Procurement", "CIO", "Programme Director"],
+    topicsEyebrow: "The proof", topicsTitle: "Credentials you can verify.", topicsHl: "verify",
+    topics: [
+      { icon: "check", h: "Solutions Partner designations", p: "Five designations: Modern Work, Security, Infrastructure (Azure), Data & AI (Azure), and Digital & App Innovation (Azure). [VERIFY]" },
+      { icon: "ai", h: "AI Cloud Partner Program", p: "A member of the Microsoft AI Cloud Partner Program, with sixteen specializations. [VERIFY]" },
+      { icon: "shield", h: "Verification status", p: "Verified through the Microsoft AI Cloud Partner Program. Partner ID 1056745. [VERIFY]" },
+      { icon: "compass", h: "Earned by delivery", p: "Designations and specializations earned by delivering real projects in Qatar." },
+    ],
+    note: { h: "Always current", p: "Credential counts and Partner ID are maintained from one source and refreshed on renewal, we do not hardcode an expiry into copy. Verified at aka.ms/MicrosoftSolutionsPartner." },
+    cross: [
+      { h: "Partnership Overview", href: "Microsoft.html" },
+      { h: "Partner ecosystem", href: "Partners.html" },
+      { h: "Contact our Microsoft team", href: "Contact.html" },
+    ],
+    cta: "Talk to our Microsoft team",
+  },
+
+  search: {
+    file: "Microsoft-Enterprise-Search.html", url: "/partners/microsoft/enterprise-search", hue: "magenta", figure: "network",
+    crumb: "ICT Unified Enterprise Search", schema: "Product",
+    eyebrow: "Productized solution · Microsoft Marketplace",
+    title: "ICT Unified Enterprise Search.", hl: "Enterprise Search",
+    intro: "An Azure-based knowledge discovery platform that gives your people one place to search across documents, databases, cloud storage, and applications, with natural-language querying and enterprise-grade security.",
+    metaDesc: "ICT Unified Enterprise Search: an Azure-based enterprise search platform with natural-language querying, contextual relationships, and enterprise-grade security.",
+    audience: ["CIO", "Knowledge Lead", "Research Lead", "Data Lead"],
+    topicsEyebrow: "What it does", topicsTitle: "One place to find anything.", topicsHl: "anything",
+    topics: [
+      { icon: "data", h: "Search everything", p: "Documents, databases, cloud storage, and internal applications in one index." },
+      { icon: "ai", h: "Natural-language querying", p: "Ask in plain language; results understand intent, not just keywords." },
+      { icon: "network", h: "Contextual relationships", p: "Surfaces relationships and context across sources, not isolated hits." },
+      { icon: "lock", h: "Enterprise-grade security", p: "Governed access and security, integrated with your Azure environment." },
+    ],
+    note: { h: "Built on Azure", p: "Integrates with your existing infrastructure, including Microsoft Azure, and is listed on the Microsoft Commercial Marketplace.", tags: ["Azure", "Azure AI Search", "Natural language", "Enterprise security"] },
+    cross: [
+      { h: "AI & Data hub", href: "AI-Data.html" },
+      { h: "Investment Research Assistant", href: "Case-Investment-Research.html" },
+      { h: "DocumentIQ by ICT", href: "Microsoft-DocumentIQ.html" },
+    ],
+    cta: "See it on the Microsoft Marketplace", ctaDisabled: true,
+  },
+
+  documentiq: {
+    file: "Microsoft-DocumentIQ.html", url: "/partners/microsoft/documentiq", hue: "violet", figure: "agentic",
+    crumb: "DocumentIQ by ICT", schema: "Product",
+    eyebrow: "Productized solution · Microsoft Marketplace",
+    title: "DocumentIQ by ICT.", hl: "DocumentIQ",
+    intro: "An agentic document-intelligence platform built on Azure. It ingests documents from any source, understands them, and runs autonomous agents that review, detect risk, and surface insight, through a secure, governed architecture.",
+    metaDesc: "DocumentIQ by ICT: an agentic document intelligence platform on Azure with Document Intelligence, Azure AI Foundry, AI Search, and Cosmos DB.",
+    audience: ["CIO", "Compliance Lead", "Head of Operations"],
+    topicsEyebrow: "Capabilities", topicsTitle: "Documents that understand themselves.", topicsHl: "understand themselves",
+    topics: [
+      { icon: "layers", h: "Document ingestion & OCR", p: "Ingest from any source and extract content with Document Intelligence." },
+      { icon: "ai", h: "Context understanding", p: "Understand meaning and structure, not just text." },
+      { icon: "operations", h: "Agent workflows", p: "Autonomous agents review documents and run multi-step workflows." },
+      { icon: "shield", h: "Risk detection & compliance", p: "Detect risks and run compliance checks automatically." },
+      { icon: "data", h: "Semantic search", p: "Find anything by meaning across the document estate." },
+      { icon: "lock", h: "Secure architecture", p: "A secure, VNET-isolated, Azure-native environment." },
+    ],
+    note: { h: "Built on Azure", p: "An agentic, Azure-native architecture for document intelligence at enterprise scale.", tags: ["Azure", "Document Intelligence", "Azure AI Foundry", "AI Search", "Cosmos DB", "VNET-isolated"] },
+    cross: [
+      { h: "AI & Data hub", href: "AI-Data.html" },
+      { h: "Agentic & Autonomous Systems", href: "AI-Agentic-Systems.html" },
+      { h: "Case studies", href: "Case-Studies.html" },
+    ],
+    cta: "See it on the Microsoft Marketplace", ctaDisabled: true,
+  },
+};

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Terms of Use | ICT</title>
+<link rel="icon" type="image/png" href="assets/ict-logo-small.png" />
+<link rel="apple-touch-icon" href="assets/ict-logo-small.png" />
+<meta name="theme-color" content="#0A091E" />
+<meta name="description" content="The terms governing your use of the ICT website, including intellectual property, acceptable use, liability, and governing law in Qatar." />
+<link rel="canonical" href="https://www.ict.com.qa/terms-of-use" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ICT" />
+<meta property="og:title" content="Terms of Use | ICT" />
+<meta property="og:description" content="The terms governing your use of the ICT website." />
+<meta property="og:url" content="https://www.ict.com.qa/terms-of-use" />
+<meta property="og:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://unpkg.com" crossorigin />
+<link rel="stylesheet" href="ds/colors_and_type.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/service.css" />
+<link rel="stylesheet" href="css/pages.css" />
+<link rel="stylesheet" href="css/motion.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+<script src="components/enhance.js"></script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Footer.jsx"></script>
+<script type="text/babel" src="components/LegalPage.jsx"></script>
+<script type="text/babel">
+  const { useEffect } = React;
+  const LEGAL_DATA = {
+    title: "Terms of use",
+    updated: "17 June 2026",
+    intro: [
+      "These Terms of Use govern your access to and use of the website of ICT (Information &amp; Communication Technology W.L.L), a company incorporated in the State of Qatar and headquartered in Doha (\"ICT\", \"we\", \"us\").",
+      "This website provides information about ICT and its services. It does not, by itself, create a service relationship; any engagement with ICT is governed by a separate written agreement. Please read these terms carefully before using the site."
+    ],
+    sections: [
+      { h: "Acceptance of terms", body: [
+        "By accessing or using this website, you agree to be bound by these Terms of Use and by our <a href=\"Privacy-Policy.html\">Privacy Policy</a>. If you do not agree, please do not use the site. If you use this website on behalf of an organisation, you confirm that you are authorised to accept these terms on its behalf."
+      ] },
+      { h: "Use of the website", body: [
+        "We grant you a limited, non-exclusive, revocable permission to access and use this website for lawful, informational, and business purposes. You agree to use the site in a manner consistent with these terms and with all applicable laws and regulations in Qatar.",
+        "We may modify, suspend, or discontinue any part of the site at any time without notice, and we are not liable for any resulting unavailability."
+      ] },
+      { h: "Intellectual property", body: [
+        "All content on this website, including text, graphics, logos, icons, images, layout, design, and software, is the property of ICT or its licensors and is protected by intellectual property laws.",
+        "You may view and print content for your own internal, non-commercial reference. You may not reproduce, distribute, modify, republish, or create derivative works from any part of the site without our prior written consent. The ICT name, logo, and brand elements may not be used without permission."
+      ] },
+      { h: "Prohibited activities", body: [
+        "When using this website, you agree not to:",
+        { ul: [
+          "Use the site for any unlawful, fraudulent, or harmful purpose.",
+          "Attempt to gain unauthorised access to the site, its servers, or connected systems.",
+          "Introduce viruses, malware, or any other malicious or disruptive code.",
+          "Interfere with the security, integrity, or availability of the site.",
+          "Scrape, harvest, or collect data from the site through automated means without our consent.",
+          "Misrepresent your identity or affiliation, or impersonate ICT or any other person."
+        ] }
+      ] },
+      { h: "Accuracy of information", body: [
+        "We take care to keep the information on this website accurate and current, but we provide it for general information only. Content may include figures, case-study metrics, and certification details that are subject to change or verification. We make no guarantee that the site is complete, accurate, or up to date, and you should not rely on it as a substitute for professional advice or a formal proposal."
+      ] },
+      { h: "Third-party links", body: [
+        "This website may contain links to third-party sites, including those of our technology partners. We provide these links for convenience only. We do not control and are not responsible for the content, products, or practices of any third-party site, and a link does not imply our endorsement. Accessing third-party sites is at your own risk and subject to their terms."
+      ] },
+      { h: "No warranties", body: [
+        "This website and its content are provided \"as is\" and \"as available\", without warranties of any kind, whether express or implied, including any implied warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not warrant that the site will be uninterrupted, secure, or free of errors or harmful components, to the fullest extent permitted by law."
+      ] },
+      { h: "Limitation of liability", body: [
+        "To the maximum extent permitted by applicable law, ICT shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or for any loss of profits, data, business, or goodwill, arising out of or in connection with your use of, or inability to use, this website, even if we have been advised of the possibility of such damages. Nothing in these terms limits any liability that cannot lawfully be excluded."
+      ] },
+      { h: "Indemnification", body: [
+        "You agree to indemnify and hold harmless ICT, its directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including reasonable legal fees, arising out of your misuse of this website or your breach of these Terms of Use."
+      ] },
+      { h: "Governing law", body: [
+        "These Terms of Use are governed by and construed in accordance with the laws of the State of Qatar. Any dispute arising out of or in connection with the website or these terms shall be subject to the exclusive jurisdiction of the competent courts of Qatar."
+      ] },
+      { h: "Changes to these terms", body: [
+        "We may revise these Terms of Use from time to time. The current version is always available on this page, and the date at the top reflects the most recent update. Your continued use of the website after changes are posted constitutes your acceptance of the revised terms."
+      ] },
+      { h: "Contact information", body: [
+        "For questions about these Terms of Use, please contact us:",
+        { ul: [
+          "ICT (Information &amp; Communication Technology W.L.L), Doha, State of Qatar",
+          "Email: <a href=\"mailto:legal@ict.com.qa\">legal@ict.com.qa</a>",
+          "Or through our <a href=\"Contact-Us.html\">contact page</a>."
+        ] }
+      ] }
+    ]
+  };
+  function useScrollReveal(){ useEffect(()=>{ document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-in')); },[]); }
+  function App(){ useScrollReveal();
+    return (<><Nav /><main id="main-content" tabIndex="-1"><LegalPage data={LEGAL_DATA} /></main><Footer /></>); }
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+<script src="components/cookie-consent.js"></script>
+</body>
+</html>

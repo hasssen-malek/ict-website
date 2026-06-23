@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Security & Identity | ICT + Microsoft</title>
+<link rel="icon" type="image/png" href="assets/ict-logo-small.png" />
+<link rel="apple-touch-icon" href="assets/ict-logo-small.png" />
+<meta name="theme-color" content="#0A091E" />
+<meta name="description" content="ICT's Microsoft security practice: Microsoft Defender, Microsoft Entra, identity and access management, data security, and threat protection." />
+<link rel="canonical" href="https://www.ict.com.qa/partners/microsoft/security" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ICT" />
+<meta property="og:locale" content="en" />
+<meta property="og:title" content="Security & Identity | ICT + Microsoft" />
+<meta property="og:description" content="ICT's Microsoft security practice: Microsoft Defender, Microsoft Entra, identity and access management, data security, and threat protection." />
+<meta property="og:url" content="https://www.ict.com.qa/partners/microsoft/security" />
+<meta property="og:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Security & Identity | ICT + Microsoft" />
+<meta name="twitter:description" content="ICT's Microsoft security practice: Microsoft Defender, Microsoft Entra, identity and access management, data security, and threat protection." />
+<meta name="twitter:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<link rel="preconnect" href="https://unpkg.com" crossorigin />
+<link rel="stylesheet" href="ds/colors_and_type.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/pages.css" />
+<link rel="stylesheet" href="css/service.css" />
+<link rel="stylesheet" href="css/home.css" />
+<link rel="stylesheet" href="css/motion.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head><body>
+<div id="root"></div>
+<script src="components/enhance.js"></script>
+<script src="components/field.js"></script>
+<script src="components/microsoft-data.js"></script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/PageKit.jsx"></script>
+<script type="text/babel" src="components/PartnerLogo.jsx"></script>
+<script type="text/babel" src="components/Footer.jsx"></script>
+<script type="text/babel" src="components/HeroFigures.jsx"></script>
+<script type="text/babel" src="components/MicrosoftSubPage.jsx"></script>
+<script type="text/babel">
+  const { useEffect } = React;
+  const KEY = "security";
+  function useScrollReveal(){ useEffect(()=>{ const els=document.querySelectorAll('.reveal'); if(!('IntersectionObserver' in window)){els.forEach(el=>el.classList.add('is-in'));return;} const io=new IntersectionObserver((es)=>{for(const e of es){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}}},{threshold:0.12,rootMargin:'0px 0px -50px 0px'}); els.forEach(el=>io.observe(el)); return ()=>io.disconnect(); },[]); }
+  function App(){
+    useScrollReveal();
+    const d = window.MS_SUB[KEY];
+    useEffect(()=>{
+      const base="https://www.ict.com.qa";
+      const svc = d.schema==="Product"
+        ? {"@context":"https://schema.org","@type":"Product","name":d.crumb,"description":"ICT's Microsoft security practice: Microsoft Defender, Microsoft Entra, identity and access management, data security, and threat protection.","brand":{"@type":"Brand","name":"ICT"},"category":"Enterprise software","url":base+d.url}
+        : {"@context":"https://schema.org","@type":"Service","serviceType":d.crumb,"provider":{"@type":"Organization","name":"ICT W.L.L","url":base+"/"},"areaServed":{"@type":"Country","name":"Qatar"},"description":"ICT's Microsoft security practice: Microsoft Defender, Microsoft Entra, identity and access management, data security, and threat protection.","url":base+d.url};
+      const ld=[
+        {"@context":"https://schema.org","@type":"WebPage","name":document.title,"url":base+d.url,"isPartOf":{"@type":"WebSite","name":"ICT","url":base+"/"}},
+        {"@context":"https://schema.org","@type":"Organization","name":"ICT W.L.L","url":base+"/","logo":base+"/assets/ict-logo.png","areaServed":{"@type":"Country","name":"Qatar"}},
+        {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":base+"/"},
+          {"@type":"ListItem","position":2,"name":"Partners","item":base+"/partners"},
+          {"@type":"ListItem","position":3,"name":"Microsoft","item":base+"/partners/microsoft"},
+          {"@type":"ListItem","position":4,"name":d.crumb,"item":base+d.url}
+        ]},
+        svc
+      ];
+      ld.forEach(o=>{const s=document.createElement('script');s.type='application/ld+json';s.textContent=JSON.stringify(o);document.head.appendChild(s);});
+    },[]);
+    return (<><Nav /><main id="main-content" tabIndex="-1"><MicrosoftSubPage data={d} /></main><Footer /></>);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+<script src="components/cookie-consent.js"></script>
+</body>
+</html>

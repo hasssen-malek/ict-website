@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ICT and Microsoft | Partner in Qatar</title>
+<link rel="icon" type="image/png" href="assets/ict-logo-small.png" />
+<link rel="apple-touch-icon" href="assets/ict-logo-small.png" />
+<meta name="theme-color" content="#0A091E" />
+<meta name="description" content="A Microsoft AI Cloud Partner Program member with five Solutions Partner designations and sixteen specializations across Azure, security, and data and AI." />
+<link rel="canonical" href="https://www.ict.com.qa/partners/microsoft" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ICT" />
+<meta property="og:locale" content="en" />
+<meta property="og:title" content="ICT and Microsoft | Partner in Qatar" />
+<meta property="og:description" content="A Microsoft AI Cloud Partner Program member with five Solutions Partner designations and sixteen specializations across Azure, security, and data and AI." />
+<meta property="og:url" content="https://www.ict.com.qa/partners/microsoft" />
+<meta property="og:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ICT and Microsoft | Partner in Qatar" />
+<meta name="twitter:description" content="A Microsoft AI Cloud Partner Program member with five Solutions Partner designations and sixteen specializations across Azure, security, and data and AI." />
+<meta name="twitter:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<link rel="preconnect" href="https://unpkg.com" crossorigin />
+<link rel="stylesheet" href="ds/colors_and_type.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/pages.css" />
+<link rel="stylesheet" href="css/service.css" />
+<link rel="stylesheet" href="css/home.css" />
+<link rel="stylesheet" href="css/motion.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head><body>
+<div id="root"></div>
+<script src="components/enhance.js"></script>
+<script src="components/field.js"></script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/PageKit.jsx"></script>
+<script type="text/babel" src="components/PartnerLogo.jsx"></script>
+<script type="text/babel" src="components/Footer.jsx"></script>
+<script type="text/babel" src="components/HeroFigures.jsx"></script>
+<script type="text/babel" src="components/MicrosoftPage.jsx"></script>
+<script type="text/babel">
+  const { useEffect } = React;
+  function useScrollReveal(){ useEffect(()=>{ const els=document.querySelectorAll('.reveal'); if(!('IntersectionObserver' in window)){els.forEach(el=>el.classList.add('is-in'));return;} const io=new IntersectionObserver((es)=>{for(const e of es){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}}},{threshold:0.12,rootMargin:'0px 0px -50px 0px'}); els.forEach(el=>io.observe(el)); return ()=>io.disconnect(); },[]); }
+  function App(){ useScrollReveal(); useEffect(()=>{ const arr=[{"@context":"https://schema.org","@type":"Organization","name":"ICT W.L.L","url":"https://www.ict.com.qa/","logo":"https://www.ict.com.qa/assets/ict-logo.png","areaServed":{"@type":"Country","name":"Qatar"}},{"@context":"https://schema.org","@type":"Service","serviceType":"Microsoft Azure cloud, data, AI, security and modern work services","provider":{"@type":"Organization","name":"ICT W.L.L","url":"https://www.ict.com.qa/"},"areaServed":{"@type":"Country","name":"Qatar"},"description":"A Microsoft AI Cloud Partner Program member with five Solutions Partner designations and sixteen specializations across Azure, security, and data and AI."},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.ict.com.qa/"},{"@type":"ListItem","position":2,"name":"Partners","item":"https://www.ict.com.qa/partners"},{"@type":"ListItem","position":3,"name":"Microsoft","item":"https://www.ict.com.qa/partners/microsoft"}]}]; arr.forEach(o=>{const s=document.createElement('script');s.type='application/ld+json';s.textContent=JSON.stringify(o);document.head.appendChild(s);}); },[]);
+    return (<><Nav /><main id="main-content" tabIndex="-1"><MicrosoftPage /></main><Footer /></>); }
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+<script src="components/cookie-consent.js"></script>
+</body>
+</html>

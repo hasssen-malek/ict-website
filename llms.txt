@@ -1,0 +1,34 @@
+# ICT — Information & Communication Technology W.L.L
+
+> ICT is a digital transformation partner in Doha, Qatar. Since 2005 we have helped
+> organisations modernise their infrastructure, secure it, and put their data and AI
+> to work. We advise, build, and run, and stay accountable for the outcome.
+> Note: figures marked for verification (founding year, partner counts, Partner ID)
+> should be confirmed against a primary source before external citation.
+
+## Core pages
+- [Home](https://www.ict.com.qa/): What ICT does, services, AI and data, industries, partners.
+- [Company](https://www.ict.com.qa/company): Story since 2005, vision, mission, values, leadership.
+- [Services](https://www.ict.com.qa/services): Eight service pillars, one partner across the lifecycle.
+- [AI & Data](https://www.ict.com.qa/ai-data): Enterprise AI, analytics, agentic systems, responsible AI.
+- [Emerging Tech](https://www.ict.com.qa/emerging-tech): IoT, blockchain, AR/VR, digital twins.
+- [Industries](https://www.ict.com.qa/industries): Finance, government, healthcare, retail, telecom, manufacturing.
+- [Partners](https://www.ict.com.qa/partners): Microsoft, Databricks, Informatica, Adobe and others.
+- [Microsoft partnership](https://www.ict.com.qa/partners/microsoft): Microsoft AI Cloud Partner Program member; five Solutions Partner designations; sixteen specializations.
+- [Case studies](https://www.ict.com.qa/insights/case-studies): AI research assistant, unified enterprise search, hybrid cloud on Azure VMware Solution.
+- [Contact](https://www.ict.com.qa/contact): Doha office, info@ict.com.qa, +974 4440 5000.
+
+## Services
+- [Digital Transformation Consulting](https://www.ict.com.qa/services/consulting)
+- [Cloud & Infrastructure](https://www.ict.com.qa/services/cloud-infrastructure)
+- [Cybersecurity](https://www.ict.com.qa/services/cybersecurity)
+- [Data, AI & Analytics](https://www.ict.com.qa/services/data-ai-analytics)
+- [Enterprise Applications & Integration](https://www.ict.com.qa/services/applications)
+- [Customer Experience Platforms](https://www.ict.com.qa/services/customer-experience)
+- [Managed & Support Services](https://www.ict.com.qa/services/managed-services)
+
+## Contact
+- Email: info@ict.com.qa
+- Phone: +974 4440 5000
+- Address: ICT W.L.L., Doha, Qatar
+- Web: https://www.ict.com.qa

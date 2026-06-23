@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="ict-mono-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0098FF"></stop>
+      <stop offset="40%" stop-color="#612DF5"></stop>
+      <stop offset="70%" stop-color="#CC47AB"></stop>
+      <stop offset="100%" stop-color="#FF2A68"></stop>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#0A091E" stroke="url(#ict-mono-grad)" stroke-width="1.5"></rect>
+  <text x="32" y="42" text-anchor="middle" font-family="Poppins, &#39;Space Grotesk&#39;, sans-serif" font-weight="700" font-size="24" letter-spacing="-0.02em" fill="#FFFFFF">ICT</text>
+</svg>

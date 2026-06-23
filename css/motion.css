@@ -1,0 +1,696 @@
+/* =========================================================================
+   ICT — Motion System
+   Premium, restrained, enterprise. transform/opacity only. 60fps.
+   Every continuous loop is gated behind prefers-reduced-motion.
+   Reveals degrade to fully-visible when motion is reduced or JS is absent.
+   ========================================================================= */
+
+:root {
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);   /* entrances */
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);   /* continuous */
+  --dur-micro:   200ms;   /* micro-interactions */
+  --dur-comp:    420ms;   /* component transitions */
+}
+
+/* =========================================================================
+   HERO TEXT — premium staggered load-in
+   Each line rises + fades in sequence on page load; the headline adds a soft
+   blur-settle. Base state is the visible end-state, so reduced-motion,
+   motion-off, and no-JS all render the text normally (animation just removed).
+   ========================================================================= */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__head--load > * {
+    animation: heroLineIn .85s var(--ease-out) both;
+  }
+  .hero__head--load .hero__kicker { animation-delay: .12s; }
+  .hero__head--load .hero__title {
+    animation: heroTitleIn 1s var(--ease-out) both;
+    animation-delay: .26s;
+  }
+  .hero__head--load .hero__sub { animation-delay: .50s; }
+  .hero__head--load .hero__cta { animation-delay: .66s; }
+
+  /* the accent word in the headline glides up just behind the line */
+  .hero__head--load .hero__title em {
+    display: inline-block;
+    animation: heroAccentIn 1s var(--ease-out) both;
+    animation-delay: .42s;
+  }
+
+  .hero__meta--load .hero__meta-item {
+    animation: heroLineIn .8s var(--ease-out) both;
+  }
+  .hero__meta--load .hero__meta-item:nth-child(1) { animation-delay: .82s; }
+  .hero__meta--load .hero__meta-item:nth-child(2) { animation-delay: .92s; }
+  .hero__meta--load .hero__meta-item:nth-child(3) { animation-delay: 1.02s; }
+}
+@keyframes heroLineIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes heroTitleIn {
+  from { opacity: 0; transform: translateY(20px); filter: blur(7px); }
+  60%  { filter: blur(0); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+@keyframes heroAccentIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* =========================================================================
+   SECONDARY-PAGE HEROES — same premium staggered load-in
+   Shared by every page hero (.phero / .chero / .lhero / story / service).
+   Crumbs -> kicker -> title (blur-settle) -> sub/meta -> tags, in sequence.
+   Base state is visible, so reduced-motion / motion-off / no-JS just show it.
+   ========================================================================= */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-load .lhero__crumbs {
+    animation: heroLineIn .8s var(--ease-out) both;
+    animation-delay: .08s;
+  }
+  .hero-load .kicker {
+    animation: heroLineIn .8s var(--ease-out) both;
+    animation-delay: .18s;
+  }
+  .hero-load .phero__title,
+  .hero-load .chero__title,
+  .hero-load .lhero__title {
+    animation: heroTitleIn 1s var(--ease-out) both;
+    animation-delay: .30s;
+  }
+  .hero-load .phero__sub,
+  .hero-load .chero__sub,
+  .hero-load .lhero__meta {
+    animation: heroLineIn .85s var(--ease-out) both;
+    animation-delay: .50s;
+  }
+  .hero-load .storyhero__tags {
+    animation: heroLineIn .85s var(--ease-out) both;
+    animation-delay: .64s;
+  }
+}
+
+/* =========================================================================
+   SCROLL REVEAL — orchestrated fade + rise
+   ========================================================================= */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity .66s var(--ease-out),
+      transform .66s var(--ease-out);
+    will-change: opacity, transform;
+  }
+  .reveal.is-in { opacity: 1; transform: none; }
+  .reveal.is-in { will-change: auto; }
+
+  /* stagger steps (delays already wired via .d1–.d5 in base.css) */
+
+  /* card grids self-stagger by DOM order when a row enters together */
+  .svc__panel.reveal:nth-of-type(1) { transition-delay: .02s; }
+  .svc__panel.reveal:nth-of-type(2) { transition-delay: .10s; }
+  .svc__panel.reveal:nth-of-type(3) { transition-delay: .18s; }
+  .svc__panel.reveal:nth-of-type(4) { transition-delay: .26s; }
+
+  .sstory.reveal:nth-child(1) { transition-delay: .02s; }
+  .sstory.reveal:nth-child(2) { transition-delay: .10s; }
+  .sstory.reveal:nth-child(3) { transition-delay: .18s; }
+}
+
+/* =========================================================================
+   APPROACH — sequenced reveal (number → title → text) + subtle hover
+   The step container is observed; its children animate in sequence.
+   ========================================================================= */
+@media (prefers-reduced-motion: no-preference) {
+  .appr__step.reveal { opacity: 1; transform: none; }
+  .appr__step .appr__no,
+  .appr__step .appr__name,
+  .appr__step .appr__desc {
+    opacity: 0; transform: translateY(12px);
+    transition: opacity .55s var(--ease-out), transform .55s var(--ease-out);
+  }
+  .appr__step::before { transform: scaleX(0); transform-origin: left; transition: transform .5s var(--ease-out); }
+  .appr__step.is-in::before { transform: scaleX(1); }
+  .appr__step.is-in .appr__no   { opacity: 1; transform: none; transition-delay: .08s; }
+  .appr__step.is-in .appr__name { opacity: 1; transform: none; transition-delay: .20s; }
+  .appr__step.is-in .appr__desc { opacity: 1; transform: none; transition-delay: .32s; }
+}
+.appr__step .appr__no,
+.appr__step .appr__name,
+.appr__step .appr__desc { position: relative; z-index: 1; }
+
+/* =========================================================================
+   LIVING INFRASTRUCTURE — schematic ambient motion
+   ========================================================================= */
+@media (prefers-reduced-motion: no-preference) {
+  /* connection lines breathe — barely perceptible */
+  .hero__schema .s-line-lit,
+  .shero__viz   .s-line-lit,
+  .svc__diagram .s-line-lit,
+  .story__viz   .s-line-lit {
+    animation: lineBreath 7s var(--ease-in-out) infinite;
+  }
+
+  /* colored nodes pulse softly (opacity only — no glow) */
+  .hero__schema .s-node-live,
+  .svc__diagram .s-mark,
+  .story__viz   .s-mark,
+  .shero__viz   .s-mark {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: nodePulse 4.2s var(--ease-in-out) infinite;
+  }
+
+  /* data paths slowly illuminate — a short lit segment travels the route.
+     Uses pathLength="100" so all routes travel at a consistent cadence.
+     Higher specificity (.draw .s-flow) to beat base.css's .draw polyline. */
+  .draw .s-flow {
+    fill: none;
+    stroke: var(--flow, #0098FF);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    opacity: 0.85;
+    stroke-dasharray: 7 100;
+    stroke-dashoffset: 0;
+    animation: flowMove 4.6s linear infinite;
+  }
+}
+
+@keyframes lineBreath {
+  0%, 100% { opacity: 0.38; }
+  50%      { opacity: 0.62; }
+}
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.14); }
+}
+@keyframes flowMove {
+  from { stroke-dashoffset: 107; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* draw-in: the schematic strokes draw themselves once on reveal (base.css
+   handles the .draw stroke-dashoffset). s-flow loops instead — kept solid above. */
+
+/* =========================================================================
+   AMBIENT BACKGROUND — almost-subconscious drift on the hero
+   A single very low-opacity soft light, slowly traversing. Not a gradient
+   fill of the section; a faint moving accent behind the schematic.
+   ========================================================================= */
+.hero { position: relative; }
+.hero__ambient {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
+}
+.hero__ambient::before {
+  content: "";
+  position: absolute;
+  width: 60vw; height: 60vw; max-width: 820px; max-height: 820px;
+  top: -10%; right: -8%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(55,15,221,0.10) 0%, rgba(55,15,221,0) 62%);
+  filter: blur(8px);
+}
+/* second, complementary glow — electric blue, lower-left — adds depth to the
+   hero field without competing with the headline or the photographic art */
+.hero__ambient::after {
+  content: "";
+  position: absolute;
+  width: 46vw; height: 46vw; max-width: 620px; max-height: 620px;
+  bottom: -22%; left: -10%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,152,255,0.08) 0%, rgba(0,152,255,0) 64%);
+  filter: blur(10px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero__ambient::before { animation: ambientDrift 22s var(--ease-in-out) infinite; }
+  .hero__ambient::after { animation: ambientDrift 28s var(--ease-in-out) infinite reverse; }
+}
+.hero > .wrap { position: relative; z-index: 1; }
+@keyframes ambientDrift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.9; }
+  50%      { transform: translate3d(-4%, 4%, 0) scale(1.08); opacity: 1; }
+}
+
+/* =========================================================================
+   HERO PARTICLE WAVE — canvas field, right-weighted, dissolving into bg
+   ========================================================================= */
+.hero__particles {
+  position: absolute; inset: 0; overflow: hidden;
+  pointer-events: none; z-index: 0;
+}
+.hero__particles canvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; display: block;
+  /* keep the left clean for the headline; focal weight sits right (golden) */
+  -webkit-mask-image: radial-gradient(120% 130% at 72% 50%, #000 38%, rgba(0,0,0,0.5) 66%, transparent 88%);
+  mask-image: radial-gradient(120% 130% at 72% 50%, #000 38%, rgba(0,0,0,0.5) 66%, transparent 88%);
+}
+
+/* =========================================================================
+   HERO ARTWORK — ICT particle background image + readability scrim
+   ========================================================================= */
+.hero__art {
+  position: absolute; inset: 0; overflow: hidden;
+  pointer-events: none; z-index: 0;
+  opacity: 1;
+}
+.hero__art.is-fading { animation: heroArtIn 1.5s var(--ease-out, cubic-bezier(0.22,1,0.36,1)); }
+@keyframes heroArtIn { from { opacity: 0; } to { opacity: 1; } }
+.hero__field { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 2; }
+/* background plane: slight blur for depth-of-field */
+.hero__field--far { z-index: 1; filter: blur(1.3px); }
+/* foreground plane: medium glowing particles, gentle blur + bloom feel */
+.hero__field--med { z-index: 3; filter: blur(1.4px); }
+/* camera plane: large out-of-focus bokeh in front of everything, strong blur */
+.hero__field--bokeh { z-index: 4; filter: blur(16px); opacity: 1; }
+/* extremely subtle volumetric haze drifting above the scene (soft light scatter).
+   Two large, very low-opacity coloured wells keep the top-centre text zone clean. */
+.hero__haze {
+  position: absolute; inset: 0; z-index: 5; pointer-events: none; mix-blend-mode: screen;
+  background:
+    radial-gradient(60% 70% at 78% 72%, rgba(97,45,245,0.10), transparent 70%),
+    radial-gradient(52% 64% at 22% 64%, rgba(0,152,255,0.08), transparent 72%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero__haze { animation: heroHaze 38s var(--ease-in-out) infinite alternate; }
+}
+@keyframes heroHaze {
+  from { transform: translate3d(-1.4%, 0.8%, 0) scale(1.02); opacity: 0.8; }
+  to   { transform: translate3d(1.6%, -1%, 0) scale(1.06); opacity: 1; }
+}
+.hero__bgimg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 70% 42%;
+  opacity: 0.82;
+  z-index: 0;
+}
+/* background video — sits directly over the static image (same plane) and
+   fades in once it can play through. Until then (or on slow/Save-Data links,
+   reduced-motion, or a load error) the image beneath is the fallback. */
+.hero__video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 70% 42%;
+  z-index: 0; opacity: 0;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__video { display: none; }
+}
+/* readability scrim — gentle, focused on the text zone; reveals the art on the right */
+.hero__scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(6,5,18,0.96) 0%, rgba(6,5,18,0.84) 30%, rgba(6,5,18,0.54) 52%, rgba(6,5,18,0.24) 74%, rgba(6,5,18,0.12) 100%),
+    linear-gradient(0deg, rgba(6,5,18,0.5) 0%, transparent 28%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__art { animation: none; }
+}
+@media (max-width: 980px) {
+  .hero__bgimg { object-position: 72% 38%; opacity: 0.76; }
+  .hero__scrim {
+    background:
+      linear-gradient(90deg, rgba(6,5,18,0.96) 0%, rgba(6,5,18,0.84) 34%, rgba(6,5,18,0.56) 70%, rgba(6,5,18,0.4) 100%),
+      linear-gradient(0deg, rgba(6,5,18,0.62) 0%, transparent 36%);
+  }
+}
+@media (max-width: 600px) {
+  .hero__bgimg { opacity: 0.66; }
+}
+
+/* =========================================================================
+   BUTTONS — refined micro-interactions
+   ========================================================================= */
+.btn { transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-comp) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.btn--primary { box-shadow: 0 1px 2px rgba(6,5,18,0.18); }
+.btn--primary:hover { box-shadow: 0 10px 26px -8px rgba(6,5,18,0.45); transform: translateY(-1px); }
+.btn--primary:active { box-shadow: 0 2px 8px -2px rgba(6,5,18,0.4); transform: translateY(0); }
+
+/* =========================================================================
+   NAV — compact-on-scroll
+   ========================================================================= */
+.nav__row { transition: height var(--dur-comp) var(--ease-in-out); }
+.nav__logo img { transition: height var(--dur-comp) var(--ease-in-out); }
+.nav.is-scrolled .nav__row { height: 62px; }
+.nav.is-scrolled .nav__logo img { height: 27px; }
+
+/* nav link — opacity transition is already smooth; keep it that way */
+
+/* =========================================================================
+   ILLUSTRATION SYSTEM — ambient, hypnotic, continuous (no obvious loops)
+   ========================================================================= */
+.ill { width: 100%; height: auto; display: block; overflow: visible; color: var(--on-dark); }
+.ill .il-rot, .ill .il-pulse, .ill .il-glow, .ill .il-float-a, .ill .il-float-b, .ill .il-float-c {
+  transform-box: fill-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ill .il-rot   { animation: ilRot 70s linear infinite; }
+  .ill .il-pulse { animation: ilPulse 4.6s var(--ease-in-out) infinite; }
+  .ill .il-glow  { animation: ilGlow 5.5s var(--ease-in-out) infinite; }
+  .ill .il-fade  { animation: ilFade 6s var(--ease-in-out) infinite; }
+  .ill .il-float-a { animation: ilFloat 9s var(--ease-in-out) infinite; }
+  .ill .il-float-b { animation: ilFloat 11s var(--ease-in-out) infinite; animation-delay: -3s; }
+  .ill .il-float-c { animation: ilFloat 13s var(--ease-in-out) infinite; animation-delay: -6s; }
+  .ill .il-wave  { stroke-dasharray: 22 100; animation: ilWave 3.6s linear infinite; }
+}
+@keyframes ilRot   { to { transform: rotate(360deg); } }
+@keyframes ilPulse { 0%, 100% { opacity: 0.72; transform: scale(1); } 50% { opacity: 1; transform: scale(1.12); } }
+@keyframes ilGlow  { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.95; } }
+@keyframes ilFade  { 0%, 100% { opacity: 0.34; } 50% { opacity: 0.6; } }
+@keyframes ilFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes ilWave  { from { stroke-dashoffset: 122; } to { stroke-dashoffset: 0; } }
+
+/* tweak: disable ambient/continuous motion (keyframe animations) on demand.
+   Reveals use transitions, so content still animates in. */
+html.motion-off *, html.motion-off *::before, html.motion-off *::after { animation: none !important; }
+
+/* =========================================================================
+   REDUCED MOTION — everything resolves to the visible end-state
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .appr__step .appr__no,
+  .appr__step .appr__name,
+  .appr__step .appr__desc { opacity: 1 !important; transform: none !important; }
+  .appr__step::before { transform: scaleX(1) !important; }
+  .s-flow { display: none; }
+  .hero__ambient { display: none; }
+  .rb-shimmer { display: none; }
+  .ill .il-wave { stroke-dasharray: none; }
+  .timeline--track .tl-row::after { transform: none !important; }
+  .tl-node { transform: none !important; }
+  .cta__aurora { animation: none !important; }
+}
+
+/* =========================================================================
+   ITERATION 2 · SITE-WIDE MOTION REFINEMENTS
+   One shared language: --ease-out entrances, --ease-in-out ambient loops,
+   transform/opacity only, everything gated behind prefers-reduced-motion.
+   ========================================================================= */
+
+/* ---- 1 · Hero gradient keyword — the full ICT spectrum, azure → purple →
+   pink → orange, with compressed midpoints so each colour zone reads
+   distinctly; a very slow sheen drifts the spectrum across the phrase so the
+   treatment is immediately noticed without ever flashing. Bright, AA-checked
+   stops (≥3:1 large text on deep ink). Fallback is flat electric blue. */
+.grad-ict { color: var(--ict-electric-blue, #0098FF); }
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .grad-ict {
+    /* Sharper, fully-saturated ICT spectrum. The stop sequence ENDS on the same
+       electric blue it STARTS on, so the sweep tiles seamlessly for a perfect
+       continuous loop (no back-and-forth turnaround). */
+    background: linear-gradient(96deg,
+      #0098FF 0%, #2E6BFF 14%, #612DF5 28%, #9A33E0 40%, #CC47AB 52%,
+      #FF3D8A 64%, #FC7F40 78%, #FFB061 88%, #0098FF 100%);
+    background-size: 220% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .grad-ict { animation: gradSheen 9s linear infinite; }
+  }
+}
+/* one full period = exactly one gradient tile, so the loop is seamless & fluid */
+@keyframes gradSheen {
+  from { background-position: 0% 50%; }
+  to   { background-position: 200% 50%; }
+}
+/* premium soft bloom around the gradient headline word — subtle, readable */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__title .grad-ict { animation: gradSheen 9s linear infinite; }
+}
+
+/* ---- 2 · Hero + Approach backgrounds — slow, seamless drift (GPU transform
+   only). The photographic plates breathe beneath the particle planes so the
+   sections feel alive even at rest. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__bgimg { animation: heroWaveDrift 64s var(--ease-in-out) infinite alternate; }
+  .appr__bgimg { animation: bgBreath 58s var(--ease-in-out) infinite alternate-reverse; }
+}
+/* hero wave image: gentle breathing + a slow horizontal travel so the dotted
+   landscape reads as a living fabric whose peaks drift sideways. Subtle —
+   almost stationary at a glance. Overscan (scale) hides the translate edges. */
+@keyframes heroWaveDrift {
+  from { transform: scale(1.05) translate3d(-1.6%, 0.4%, 0); }
+  to   { transform: scale(1.08) translate3d(1.6%, -0.5%, 0); }
+}
+@keyframes bgBreath {
+  from { transform: scale(1.015) translate3d(0, 0, 0); }
+  to   { transform: scale(1.06) translate3d(-1.1%, 0.7%, 0); }
+}
+.hero__field--far { z-index: 1; }
+
+/* Approach ambient glow — two complementary masses drifting in counterphase,
+   mirroring the hero's ambient system for one connected motion language. */
+.appr__glow { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.appr__glow::before {
+  content: ""; position: absolute; border-radius: 50%;
+  width: 52vw; height: 52vw; max-width: 760px; max-height: 760px;
+  top: -16%; right: -6%;
+  background: radial-gradient(circle, rgba(97,45,245,0.12) 0%, rgba(97,45,245,0) 62%);
+  filter: blur(10px);
+}
+.appr__glow::after {
+  content: ""; position: absolute; border-radius: 50%;
+  width: 44vw; height: 44vw; max-width: 600px; max-height: 600px;
+  bottom: -20%; left: -8%;
+  background: radial-gradient(circle, rgba(0,152,255,0.09) 0%, rgba(0,152,255,0) 64%);
+  filter: blur(12px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .appr__glow::before { animation: ambientDrift 26s var(--ease-in-out) infinite; }
+  .appr__glow::after  { animation: ambientDrift 32s var(--ease-in-out) infinite reverse; }
+}
+
+/* ---- 3 · "What we do" schematics — noticeably alive, still elegant.
+   Whole diagram floats gently (staggered per panel); the brand mark pulses
+   with more presence; nodes shimmer in counterphase; the data flow runs
+   brighter and more frequently. */
+@media (prefers-reduced-motion: no-preference) {
+  .svc__diagram svg { animation: svcFloat 9s var(--ease-in-out) infinite; }
+  .svc__panel:nth-of-type(2) .svc__diagram svg { animation-duration: 11s; animation-delay: -3.5s; }
+  .svc__panel:nth-of-type(3) .svc__diagram svg { animation-duration: 10s; animation-delay: -6s; }
+  .svc__panel:nth-of-type(4) .svc__diagram svg { animation-duration: 12s; animation-delay: -8.5s; }
+
+  .svc__diagram .s-mark { animation: svcMarkPulse 3.4s var(--ease-in-out) infinite; }
+  .svc__diagram .s-node { animation: svcNodeBreath 5.2s var(--ease-in-out) infinite; }
+  .svc__diagram .s-node:nth-of-type(odd) { animation-delay: -2.6s; }
+  .svc__diagram .s-line-lit { animation: lineBreath 5.5s var(--ease-in-out) infinite; }
+  .svc__diagram .s-flow { stroke-width: 2; stroke-dasharray: 12 100; opacity: 1; animation-duration: 3.6s; }
+}
+@keyframes svcFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+@keyframes svcMarkPulse {
+  0%, 100% { opacity: 0.62; transform: scale(1); }
+  50%      { opacity: 1;    transform: scale(1.22); }
+}
+@keyframes svcNodeBreath {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 0.85; }
+}
+
+/* ---- 4 · Why-ICT value cards — sophisticated, responsive, not button-like.
+   Why ICT pillars are static (not links) — no hover affordance. */
+.why__item .why__inner { position: relative; z-index: 1; }
+
+/* ---- 5 · ONE card-interaction framework — every card-like component across
+   the site shares the same language: accent line grows, icon lifts with a
+   whisper of rotation, surface shifts one step. 300–420ms, --ease-out. */
+
+/* icon cards (values, industries, services on internal pages) — links AND
+   static cards respond identically; only links lift (they navigate). */
+.icard { position: relative; transition: background-color .35s ease; }
+.s-ink .icard, .s-ink-deep .icard { --icbar: var(--ic-d, var(--tick-1)); }
+.s-paper .icard, .s-paper-2 .icard { --icbar: var(--ic-p, var(--tick-1)); }
+.icard::before {
+  content: ""; position: absolute; top: 0; left: clamp(28px, 2.8vw, 40px);
+  width: 40px; height: 3px; background: var(--icbar, var(--tick-1));
+  opacity: 0; transition: opacity .3s ease, width .42s var(--ease-out);
+}
+.icard--empty::before { content: none; }
+.icard__ic svg { transition: transform .35s var(--ease-out); }
+@media (hover: hover) {
+  a.icard:not(.icard--empty):hover::before { opacity: 0.95; width: 64px; }
+  a.icard:not(.icard--empty):hover .icard__ic svg { transform: translateY(-2px) rotate(-3deg); }
+  .s-paper a.icard:not(.icard--empty):hover { background: var(--paper-2); }
+  .s-ink a.icard:not(.icard--empty):hover, .s-ink-deep a.icard:not(.icard--empty):hover { background: var(--ink-2); }
+}
+
+/* process-flow steps (Approach / Why-ICT pages) — same bar + icon language */
+.pflow__step { transition: background-color .35s ease; }
+.pflow__step::before { transition: width .42s var(--ease-out); }
+.pflow__ic { transition: transform .35s var(--ease-out); }
+@media (hover: hover) {
+  .pflow__step:hover { background: rgba(255,255,255,0.03); }
+  .pflow__step:hover::before { width: 56px; }
+  .pflow__step:hover .pflow__ic { transform: translateY(-2px) rotate(-3deg); }
+}
+
+/* homepage service panels — diagram answers the cursor, surface shifts */
+.svc__panel { transition: background-color .35s ease; }
+.svc__diagram { transition: transform .45s var(--ease-out); }
+@media (hover: hover) {
+  .svc__panel:hover { background: rgba(21,19,31,0.018); }
+  .svc__panel:hover .svc__diagram { transform: translateY(-4px); }
+  .svc__panel:hover .svc__title { color: var(--on-paper); }
+}
+
+/* compact related-story cards on service pages */
+.sstory { transition: background-color .35s ease; }
+@media (hover: hover) {
+  .sstory:hover { background: rgba(255,255,255,0.03); }
+}
+
+/* editorial rows (challenges / capabilities) — quietest member of the family */
+.scap, .chal__item { transition: background-color .35s ease; }
+@media (hover: hover) {
+  .scap:hover { background: rgba(255,255,255,0.025); }
+  .chal__item:hover { background: rgba(21,19,31,0.02); }
+}
+
+/* keep-exploring cards */
+.nextcard { position: relative; transition: background-color .35s ease; }
+.nextcard::before {
+  content: ""; position: absolute; top: -1px; left: clamp(22px, 2vw, 32px);
+  width: 40px; height: 3px; background: var(--nx-mk, var(--tick-1)); opacity: 0;
+  transition: opacity .3s ease, width .42s var(--ease-out);
+}
+.nextgrid .nextcard:nth-child(1) { --nx-mk: var(--tick-1); }
+.nextgrid .nextcard:nth-child(2) { --nx-mk: var(--tick-3); }
+.nextgrid .nextcard:nth-child(3) { --nx-mk: var(--tick-4); }
+@media (hover: hover) {
+  .nextcard:hover::before { opacity: 0.95; width: 64px; }
+}
+.capmap__ic { transition: transform .35s var(--ease-out), color .3s ease; }
+@media (hover: hover) {
+  .capmap__cell:hover .capmap__ic { transform: translateY(-2px) rotate(-3deg); }
+}
+
+/* ---- 6 · CTA — boxed action card on a rich, living ICT gradient.
+   The layered four-colour base (base.css) carries azure, violet, rose, and
+   orange masses; the aurora below adds slow, organic movement. */
+
+/* Aurora: a four-colour liquid system. The conic mass rotates slowly while
+   azure + warm colour bodies drift across it in counterphase; riding the
+   rotating layer makes their paths organic, never mechanical. Transform-only,
+   blurred, perfectly looping — clearly noticeable within a few seconds.
+   The static layered gradient (base.css) is the reduced-motion state. */
+.cta__aurora {
+  position: absolute; left: 50%; top: 50%; z-index: 0; pointer-events: none;
+  width: max(165%, 980px); aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: conic-gradient(from 20deg,
+    rgba(30,139,255,0.64), rgba(90,43,230,0.52), rgba(204,71,171,0.60),
+    rgba(252,127,64,0.50), rgba(30,139,255,0.64));
+  filter: blur(58px);
+  opacity: 0.78;
+}
+/* azure body — upper mass */
+.cta__aurora::before {
+  content: ""; position: absolute; border-radius: 50%;
+  width: 56%; height: 56%; top: 4%; left: 8%;
+  background: radial-gradient(circle at 42% 42%, rgba(0,152,255,0.66), rgba(0,152,255,0) 62%);
+}
+/* warm body — lower mass */
+.cta__aurora::after {
+  content: ""; position: absolute; border-radius: 50%;
+  width: 52%; height: 52%; bottom: 6%; right: 10%;
+  background: radial-gradient(circle at 58% 58%, rgba(255,122,61,0.62), rgba(255,42,104,0.3) 48%, rgba(255,42,104,0) 66%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cta__aurora { animation: auroraSpin 40s linear infinite; will-change: transform; }
+  .cta__aurora::before { animation: auroraBodyA 17s var(--ease-in-out) infinite alternate; }
+  .cta__aurora::after  { animation: auroraBodyB 23s var(--ease-in-out) infinite alternate; }
+}
+@keyframes auroraSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes auroraBodyA {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(16%, 12%, 0) scale(1.25); }
+}
+@keyframes auroraBodyB {
+  from { transform: translate3d(0, 0, 0) scale(1.18); }
+  to   { transform: translate3d(-14%, -10%, 0) scale(0.92); }
+}
+@media (max-width: 600px) {
+  .cta__aurora { filter: blur(40px); }
+}
+
+/* ---- 7 · Company timeline — the rail draws forward as milestones reveal;
+   nodes pop in just behind their segment; rows respond on hover. */
+@media (prefers-reduced-motion: no-preference) {
+  .timeline--track .tl-row::after {
+    transform: scaleY(0); transform-origin: top;
+    transition: transform .9s var(--ease-out) .1s;
+  }
+  .timeline--track .tl-row.is-in::after { transform: scaleY(1); }
+  .timeline--track .tl-node {
+    transform: scale(0);
+    transition: transform .5s var(--ease-out) .55s, box-shadow .3s ease;
+  }
+  .timeline--track .tl-row.is-in .tl-node { transform: scale(1); }
+}
+.timeline--track .tl-row { transition: background-color .3s ease; }
+.timeline--track .tl-year { transition: color .3s ease; }
+@media (hover: hover) {
+  .timeline--track .tl-row:hover { background: rgba(21,19,31,0.025); }
+  .timeline--track .tl-row.is-in:hover .tl-node {
+    transform: scale(1.3);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--tl-mk, var(--tick-3)) 16%, transparent);
+  }
+  .timeline--track .tl-row:hover .tl-year { color: var(--tl-ink, var(--on-paper)); }
+}
+
+/* =========================================================================
+   MOBILE QA PASS — global refinements (this file loads last, so it wins).
+   Desktop is untouched: every rule is gated to small / touch viewports.
+   Goals: tighter vertical rhythm on phones, honour device safe areas so
+   nothing hides behind browser UI, and comfortable full-width CTA actions.
+   ========================================================================= */
+
+/* 1 · Section rhythm — noticeably tighter on phones than on desktop, so
+   sections sit closer together and the "huge blank area" feeling is gone.
+   Desktop keeps its generous clamp(76px … 150px); phones get 48–68px. */
+@media (max-width: 640px) {
+  :root { --section-y: clamp(48px, 12vw, 68px); }
+}
+
+/* 2 · Safe areas — respect the notch, rounded corners, and the home-indicator
+   so content and the cookie banner never collide with browser chrome. */
+@media (max-width: 1024px) {
+  .wrap {
+    padding-inline:
+      max(var(--gutter), env(safe-area-inset-left))
+      max(var(--gutter), env(safe-area-inset-right));
+  }
+}
+.footer__bot { padding-bottom: max(28px, calc(env(safe-area-inset-bottom) + 16px)); }
+.cc-banner {
+  bottom: max(clamp(12px, 3vw, 28px), calc(env(safe-area-inset-bottom) + 12px));
+  left:   max(clamp(12px, 3vw, 28px), env(safe-area-inset-left));
+  right:  max(clamp(12px, 3vw, 28px), env(safe-area-inset-right));
+}
+
+/* 3 · CTA actions — full-width, evenly-stacked, generous spacing on phones. */
+@media (max-width: 560px) {
+  .cta__actions { flex-direction: column; align-items: stretch; width: 100%; gap: 14px; margin-top: 22px; }
+  .cta__actions .btn { width: 100%; justify-content: center; }
+  .cta__inner { gap: 24px; }
+  .cta__sub { max-width: 42ch; }
+}
+
+/* 4 · Tap targets — lift the footer social icons to the 44px minimum on touch. */
+@media (max-width: 1024px) {
+  .footer__social a { width: 44px; height: 44px; }
+}
